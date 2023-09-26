@@ -124,19 +124,19 @@ function Feature({
   const progressTargetRef = useRef<HTMLDivElement>(null)
 
   // print progressRef width every 1 second
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!mobile && isActive && progressRef.current && progressTargetRef.current) {
-        if (progressRef.current.offsetWidth === progressTargetRef.current.offsetWidth) {
-          const activeIndex = features.findIndex(f => f.summary === feature.summary)
-          features[(activeIndex+1)%3].ref?.current?.click()
-          clearInterval(interval)
-        }
-      }
-    }, 500)
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     if (!mobile && isActive && progressRef.current && progressTargetRef.current) {
+  //       if (progressRef.current.offsetWidth === progressTargetRef.current.offsetWidth) {
+  //         const activeIndex = features.findIndex(f => f.summary === feature.summary)
+  //         features[(activeIndex+1)%3].ref?.current?.click()
+  //         clearInterval(interval)
+  //       }
+  //     }
+  //   }, 500)
 
-    return () => clearInterval(interval)
-  }, [isActive])
+  //   return () => clearInterval(interval)
+  // }, [isActive])
 
   return (
     <div

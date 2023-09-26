@@ -17,14 +17,14 @@ export function Footer() {
             </p>
             <div className="mt-6 flex gap-6 mt-8">
               <Button href="/register" color="white" className="">
-                <span className="sm:text-lg text-main-500">Join waitlist</span>
+                <span className="sm:text-lg text-main-500">Book a demo</span>
               </Button>
               <Button
                 href="/register"
                 color="none"
                 className=""
               >
-                <span className="sm:text-lg">Contact us</span>
+                <span className="sm:text-lg">Join waitlist</span>
               </Button>
             </div>
           </div>

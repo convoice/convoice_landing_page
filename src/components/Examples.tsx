@@ -66,7 +66,7 @@ export function Examples() {
             USE CASE EXAMPLES
           </p>
           <h2 className="mt-2 max-w-2xl font-display text-3xl font-semibold text-white sm:text-4xl md:mx-auto md:text-5xl">
-            Explore what others have build with Convoice
+            Explore what others have built with Convoice
           </h2>
         </div>
         <div className="mt-16 grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
