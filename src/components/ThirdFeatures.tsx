@@ -77,7 +77,7 @@ export function ThirdFeatures() {
             <div className="h-fit w-full overflow-hidden rounded-3xl bg-white p-8 sm:p-12 md:p-20">
               <div className="flex flex-col items-start">
                 <p className="text-main-500 font-display text-sm font-semibold sm:text-base">
-                  TRUE STORY FROM CO-FOUNDER
+                  TRUE STORY FROM OUR CO-FOUNDER
                 </p>
                 <p className="mt-2 text-left font-display text-3xl font-semibold text-slate-900">
                   Say goodbye to the old way of doing things.

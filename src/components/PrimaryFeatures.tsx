@@ -3,7 +3,7 @@ import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import { ClockIcon } from '@heroicons/react/24/solid'
+import { BookOpenIcon, CalendarDaysIcon, ChartBarSquareIcon, ClockIcon, DocumentTextIcon, MegaphoneIcon, PresentationChartLineIcon, SpeakerWaveIcon } from '@heroicons/react/24/solid'
 import screenshotContacts from '@/images/screenshots/contacts.png'
 import screenshotInventory from '@/images/screenshots/inventory.png'
 import screenshotProfitLoss from '@/images/screenshots/profit-loss.png'
@@ -19,8 +19,8 @@ interface Feature {
 
 const features: Array<Feature> = [
   {
-    name: 'Reporting',
-    summary: 'Stay on top of things with always up-to-date reporting features.',
+    name: 'Available 24/7',
+    summary: 'Scale up and scale down on demand. No need to hire, train, and manage a team of agents.',
     description:
       'We talked about reporting in the section above but we needed three items here, so mentioning it one more time for posterity.',
     icon: function ReportingIcon() {
@@ -30,61 +30,61 @@ const features: Array<Feature> = [
     }
   },
   {
-    name: 'Inventory',
+    name: 'Ultra-realistic voices',
     summary:
-      'Never lose track of what’s in stock with accurate inventory tracking.',
+      'Choose from a variety of voices to create the perfect experience for your customers.',
     description:
       'We don’t offer this as part of our software but that statement is inarguably true. Accurate inventory tracking would help you for sure.',
     icon: function InventoryIcon() {
       return (
-        <ClockIcon className="h-6 w-6 text-main" aria-hidden="true" />
+        <SpeakerWaveIcon className="h-6 w-6 text-main" aria-hidden="true" />
       )
     },
   },
   {
-    name: 'Contacts',
+    name: 'Connect to knowledge bases',
     summary:
-      'Organize all of your contacts, service providers, and invoices in one place.',
+      'Feed your bots knowledge from your sources to give them more context and make them smarter.',
     description:
       'This also isn’t actually a feature, it’s just some friendly advice. We definitely recommend that you do this, you’ll feel really organized and professional.',
     icon: function ContactsIcon() {
       return (
-        <ClockIcon className="h-6 w-6 text-main" aria-hidden="true" />
+        <BookOpenIcon className="h-6 w-6 text-main" aria-hidden="true" />
       )
     },
   },
   {
-    name: 'Reporting',
-    summary: 'Stay on top of things with always up-to-date reporting features.',
+    name: 'Appointment booking',
+    summary: 'Let your customers book appointments with your voice agent.',
     description:
       'We talked about reporting in the section above but we needed three items here, so mentioning it one more time for posterity.',
     icon: function ReportingIcon() {
       return (
-        <ClockIcon className="h-6 w-6 text-main" aria-hidden="true" />
+        <CalendarDaysIcon className="h-6 w-6 text-main" aria-hidden="true" />
       )
     }
   },
   {
-    name: 'Inventory',
+    name: 'Product promotion',
     summary:
-      'Never lose track of what’s in stock with accurate inventory tracking.',
+      'Promote your products and services to your customers with your voice agent.',
     description:
       'We don’t offer this as part of our software but that statement is inarguably true. Accurate inventory tracking would help you for sure.',
     icon: function InventoryIcon() {
       return (
-        <ClockIcon className="h-6 w-6 text-main" aria-hidden="true" />
+        <MegaphoneIcon className="h-6 w-6 text-main" aria-hidden="true" />
       )
     },
   },
   {
-    name: 'Contacts',
+    name: 'Call Analytics',
     summary:
-      'Organize all of your contacts, service providers, and invoices in one place.',
+      'Monitor your bot’s performance and get insights into how your customers are interacting with it.',
     description:
       'This also isn’t actually a feature, it’s just some friendly advice. We definitely recommend that you do this, you’ll feel really organized and professional.',
     icon: function ContactsIcon() {
       return (
-        <ClockIcon className="h-6 w-6 text-main" aria-hidden="true" />
+        <PresentationChartLineIcon className="h-6 w-6 text-main" aria-hidden="true" />
       )
     },
   },
@@ -98,12 +98,12 @@ function Feature({
   feature: Feature
 }) {
   return (
-    <div className={clsx(className, 'overflow-hidden p-6')} {...props}>
+    <div className={clsx(className, 'overflow-hidden p-4')} {...props}>
       <div className="flex w-full flex-row gap-4">
         <div
           className={clsx(
-            'w-10 h-10 rounded-lg p-2 outline outline-[1.5px] outline-main',
-            true ? 'bg-main-100' : 'bg-slate-500',
+            'w-10 h-10 rounded-lg p-2 outline outline-[1.8px] outline-main',
+            true ? 'bg-main-50' : 'bg-slate-500',
           )}
         >
           <feature.icon />
@@ -141,7 +141,7 @@ export function PrimaryFeatures() {
             complicate your everyday business tasks instead.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
             <Feature
               feature={feature}
