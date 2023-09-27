@@ -1,17 +1,13 @@
 import Image from 'next/image'
 
+import { Dialog, Transition } from '@headlessui/react'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
-import logoLaravel from '@/images/logos/laravel.svg'
-import logoMirage from '@/images/logos/mirage.svg'
-import logoStatamic from '@/images/logos/statamic.svg'
-import logoStaticKit from '@/images/logos/statickit.svg'
-import logoTransistor from '@/images/logos/transistor.svg'
-import logoTuple from '@/images/logos/tuple.svg'
 import { PhoneIcon } from '@heroicons/react/24/outline'
 import { ArrowRightIcon } from '@heroicons/react/24/solid'
-import { useState, useRef } from 'react'
+import { Fragment, useState, useRef } from 'react'
 import { PhoneInput } from 'react-international-phone'
+import OtpInput from 'react-otp-input'
 import 'react-international-phone/style.css'
 
 export function Hero() {
@@ -19,10 +15,20 @@ export function Hero() {
   const callOptionRef = useRef<HTMLDivElement>(null)
   const [callOption, setCallOption] = useState<'general' | 'demo'>('general')
 
+  const [otp, setOtp] = useState('')
+  let [isOTPOpen, setIsOTPOpen] = useState(true)
+  function closeModal() {
+    setIsOTPOpen(false)
+  }
+  function openModal() {
+    setOtp('')
+    setIsOTPOpen(true)
+  }
+
   return (
-    <Container className="pb-24 pt-16 text-center lg:pt-24 bg-gradient-to-b from-white to-slate-100/80">
+    <Container className="bg-gradient-to-b from-white to-slate-100/80 pb-24 pt-16 text-center lg:pt-24">
       <div className="flex flex-col items-center gap-16 lg:flex-row">
-        <div className="flex lg:basis-1/2 flex-col max-w-2xl items-center text-center lg:items-start lg:text-left">
+        <div className="flex max-w-2xl flex-col items-center text-center lg:basis-1/2 lg:items-start lg:text-left">
           <h1 className="w-full font-display text-4xl font-semibold text-slate-900 sm:text-6xl">
             AI voice agents{' '}
             <span className="relative whitespace-nowrap text-main-500">
@@ -59,7 +65,7 @@ export function Hero() {
         </Button> */}
           </div>
         </div>
-        <div className="flex lg:basis-1/2 flex-col items-center">
+        <div className="flex flex-col items-center lg:basis-1/2">
           <div className="flex items-center gap-1 rounded-full border border-[1.5px] border-main bg-main-50 px-2.5 py-0.5 font-display font-medium text-main">
             <PhoneIcon className="h-[18px] w-[18px] stroke-[2px] outline-main" />
             <p>Call Convoice Now</p>
@@ -103,7 +109,7 @@ export function Hero() {
                     Demo Scheduling
                   </button>
                   <span
-                    className="absolute top-0 block h-full rounded-md bg-white transition-all duration-300 shadow"
+                    className="absolute top-0 block h-full rounded-md bg-white shadow transition-all duration-300"
                     ref={callOptionRef}
                     style={{ left: '0%', width: '50%' }}
                   ></span>
@@ -133,17 +139,86 @@ export function Hero() {
               </div>
               <textarea
                 placeholder="e.g. I'm Tom, a new grad from Hogwarts"
-                className="max-h-[80px] min-h-[80px] w-full rounded-md bg-white/10 px-4 !outline-none !ring-transparent transition-all border-gray-200 focus:border-gray-200 focus:outline-none"
+                className="max-h-[80px] min-h-[80px] w-full rounded-md border-gray-200 bg-white/10 px-4 !outline-none !ring-transparent transition-all focus:border-gray-200 focus:outline-none"
                 style={{ height: '120px' }}
               ></textarea>
             </div>
 
-            <button type="button" className="mt-2 py-2.5 px-4 w-full rounded-lg bg-main transition hover:bg-main-600">
-                <div className="flex items-center justify-center gap-2 font-display text-white font-semibold text-lg">
-                  <p>Launch Demo</p>
-                  <ArrowRightIcon className='h-4 w-4 stroke-white'/>
-                </div>
+            <button
+              type="button"
+              className={`mt-2 w-full rounded-lg px-4 py-2.5 transition ${phone.length < 17 ? "bg-main-400" : "bg-main hover:bg-main-600"}`}
+              onClick={openModal}
+              disabled={phone.length < 17}
+            >
+              <div className="flex items-center justify-center gap-2 font-display text-lg font-semibold text-white">
+                <p>Launch Demo</p>
+                <ArrowRightIcon className="h-4 w-4 stroke-white" />
+              </div>
             </button>
+
+            <Transition appear show={isOTPOpen} as={Fragment}>
+              <Dialog as="div" className="relative z-50" onClose={closeModal}>
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0"
+                  enterTo="opacity-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                >
+                  <div className="fixed inset-0 bg-black bg-opacity-25" />
+                </Transition.Child>
+
+                <div className="fixed inset-0 overflow-y-auto">
+                  <div className="flex min-h-full items-center justify-center p-4 text-center">
+                    <Transition.Child
+                      as={Fragment}
+                      enter="ease-out duration-300"
+                      enterFrom="opacity-0 scale-95"
+                      enterTo="opacity-100 scale-100"
+                      leave="ease-in duration-200"
+                      leaveFrom="opacity-100 scale-100"
+                      leaveTo="opacity-0 scale-95"
+                    >
+                      <Dialog.Panel className="flex w-full max-w-sm transform flex-col items-center overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                        <Dialog.Title
+                          as="h3"
+                          className="font-sans text-lg font-medium leading-6 text-gray-900"
+                        >
+                          Enter Verification Code
+                        </Dialog.Title>
+                        <div className="mt-2">
+                          <p className="text-sm text-gray-500">
+                            {`Code has been sent to ${
+                              '+1 ******' + phone.slice(-4)
+                            }`}
+                          </p>
+                        </div>
+                        
+                        <OtpInput
+                          value={otp}
+                          onChange={setOtp}
+                          numInputs={6}
+                          containerStyle={"text-black flex w-full gap-4 justify-center my-3"}
+                          inputStyle={"!w-10 h-12 rounded-md border border-[1.5px] border-gray-300 !outline-none !ring-transparent transition-all focus:border-main focus:outline-none font-sans text-lg text-center text-black"}
+                          renderInput={(props) => <input {...props} />}
+                        />
+
+                        <Button
+                          onClick={closeModal}
+                          color="main"
+                          className={`mt-2 w-full py-1.5 text-base font-medium ${otp.length < 6 ? '!bg-main-400 !hover:bg-main-400' : ''}`}
+                          disabled={otp.length < 6}
+                        >
+                          Verify
+                        </Button>
+                      </Dialog.Panel>
+                    </Transition.Child>
+                  </div>
+                </div>
+              </Dialog>
+            </Transition>
           </form>
         </div>
       </div>
