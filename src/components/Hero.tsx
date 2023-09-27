@@ -7,7 +7,7 @@ import { PhoneIcon } from '@heroicons/react/24/outline'
 import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import { Fragment, useState, useRef } from 'react'
 import { PhoneInput } from 'react-international-phone'
-import OtpInput from 'react-otp-input'
+import { OtpInput } from 'react-otp-input'
 import 'react-international-phone/style.css'
 
 export function Hero() {
@@ -16,7 +16,7 @@ export function Hero() {
   const [callOption, setCallOption] = useState<'general' | 'demo'>('general')
 
   const [otp, setOtp] = useState('')
-  let [isOTPOpen, setIsOTPOpen] = useState(true)
+  let [isOTPOpen, setIsOTPOpen] = useState(false)
   function closeModal() {
     setIsOTPOpen(false)
   }
@@ -26,32 +26,33 @@ export function Hero() {
   }
 
   return (
-    <Container className="bg-gradient-to-b from-white to-slate-100/80 pb-24 pt-16 text-center lg:pt-24">
-      <div className="flex flex-col items-center gap-16 lg:flex-row">
-        <div className="flex max-w-2xl flex-col items-center text-center lg:basis-1/2 lg:items-start lg:text-left">
-          <h1 className="w-full font-display text-4xl font-semibold text-slate-900 sm:text-6xl">
-            AI voice agents{' '}
-            <span className="relative whitespace-nowrap text-main-500">
-              <span className="relative">made simple</span>
-            </span>{' '}
-            for small businesses.
-          </h1>
-          <div className="mx-auto mt-6 max-w-3xl text-xl text-slate-700">
-            <p>
-              Businesses use Convoice to build, test, and launch automated voice
-              agents.
-            </p>
-            {/* <p>No diagram, no code, no hassle.</p> */}
-          </div>
-          <div className="mt-10 flex justify-center gap-x-6">
-            <Button
-              href="/register"
-              color="main"
-              className="px-6 py-3 text-xl font-semibold"
-            >
-              Book a demo
-            </Button>
-            {/* <Button
+    <section className='bg-gradient-to-b from-white to-slate-100/80'>
+      <Container className="pb-24 pt-16 text-center lg:pt-24">
+        <div className="flex flex-col items-center gap-16 lg:flex-row">
+          <div className="flex max-w-2xl flex-col items-center text-center lg:basis-1/2 lg:items-start lg:text-left">
+            <h1 className="w-full font-display text-4xl font-semibold text-slate-900 sm:text-6xl">
+              AI voice agents{' '}
+              <span className="relative whitespace-nowrap text-main-500">
+                <span className="relative">made simple</span>
+              </span>{' '}
+              for small businesses.
+            </h1>
+            <div className="mx-auto mt-6 max-w-3xl text-xl text-slate-700">
+              <p>
+                Businesses use Convoice to build, test, and launch automated
+                voice agents.
+              </p>
+              {/* <p>No diagram, no code, no hassle.</p> */}
+            </div>
+            <div className="mt-10 flex justify-center gap-x-6">
+              <Button
+                href="/register"
+                color="main"
+                className="px-6 py-3 text-xl font-semibold"
+              >
+                Book a demo
+              </Button>
+              {/* <Button
           href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
           variant="outline"
         >
@@ -63,167 +64,181 @@ export function Hero() {
           </svg>
           <span className="ml-3">Watch video</span>
         </Button> */}
+            </div>
           </div>
-        </div>
-        <div className="flex flex-col items-center lg:basis-1/2">
-          <div className="flex items-center gap-1 rounded-full border border-[1.5px] border-main bg-main-50 px-2.5 py-0.5 font-display font-medium text-main">
-            <PhoneIcon className="h-[18px] w-[18px] stroke-[2px] outline-main" />
-            <p>Call Convoice Now</p>
-          </div>
+          <div className="flex flex-col items-center lg:basis-1/2">
+            <div className="flex items-center gap-1 rounded-full border border-[1.5px] border-main bg-main-50 px-2.5 py-0.5 font-display font-medium text-main">
+              <PhoneIcon className="h-[18px] w-[18px] stroke-[2px] outline-main" />
+              <p>Call Convoice Now</p>
+            </div>
 
-          <form className="mt-6 flex w-full flex-col items-start gap-6 rounded-xl border border-[1.5px] border-slate-100 bg-white p-12 text-left font-sans shadow-lg">
-            <div className="flex w-full flex-col gap-2">
-              <div className="font-sans text-slate-500">
-                1. Select call option
-              </div>
-              <div className="h-fit w-full rounded-md border border-gray-200 bg-gray-100/75 px-1 py-1">
-                <div className="relative flex w-full">
-                  <button
-                    type="button"
-                    className={`z-10 basis-1/2 py-0.5 text-center text-base font-medium transition ${
-                      callOption === 'general' ? 'text-black' : 'text-gray-400'
-                    }`}
-                    onClick={() => {
-                      setCallOption('general')
-                      callOptionRef.current?.setAttribute(
-                        'style',
-                        'left: 0%; width: 50%;',
-                      )
-                    }}
-                  >
-                    General Inquiry
-                  </button>
-                  <button
-                    type="button"
-                    className={`z-10 basis-1/2 py-0.5 text-center text-base font-medium transition ${
-                      callOption === 'demo' ? 'text-black' : 'text-gray-400'
-                    }`}
-                    onClick={() => {
-                      setCallOption('demo')
-                      callOptionRef.current?.setAttribute(
-                        'style',
-                        'left: 50%; width: 50%;',
-                      )
-                    }}
-                  >
-                    Demo Scheduling
-                  </button>
-                  <span
-                    className="absolute top-0 block h-full rounded-md bg-white shadow transition-all duration-300"
-                    ref={callOptionRef}
-                    style={{ left: '0%', width: '50%' }}
-                  ></span>
+            <form className="mt-6 flex w-full flex-col items-start gap-6 rounded-xl border border-[1.5px] border-slate-100 bg-white p-12 text-left font-sans shadow-lg">
+              <div className="flex w-full flex-col gap-2">
+                <div className="font-sans text-slate-500">
+                  1. Select call option
                 </div>
-              </div>
-            </div>
-
-            <div className="flex w-full flex-col gap-2">
-              <div className="font-sans text-slate-500">
-                2. Enter your number (confirmation required)
-              </div>
-              <PhoneInput
-                hideDropdown
-                forceDialCode
-                className="flex w-full items-center justify-center gap-2"
-                inputClassName="w-full !h-10 transition-all !rounded-md !border !border-slate-200 focus:ring-0 !py-2 !px-3 !text-base"
-                countrySelectorStyleProps={{ buttonClassName: '!border-0' }}
-                defaultCountry="us"
-                value={phone}
-                onChange={(phone) => setPhone(phone)}
-              />
-            </div>
-
-            <div className="flex w-full flex-col gap-2">
-              <div className="font-sans text-slate-500">
-                3. Tell us a bit about yourself
-              </div>
-              <textarea
-                placeholder="e.g. I'm Tom, a new grad from Hogwarts"
-                className="max-h-[80px] min-h-[80px] w-full rounded-md border-gray-200 bg-white/10 px-4 !outline-none !ring-transparent transition-all focus:border-gray-200 focus:outline-none"
-                style={{ height: '120px' }}
-              ></textarea>
-            </div>
-
-            <button
-              type="button"
-              className={`mt-2 w-full rounded-lg px-4 py-2.5 transition ${phone.length < 17 ? "bg-main-400" : "bg-main hover:bg-main-600"}`}
-              onClick={openModal}
-              disabled={phone.length < 17}
-            >
-              <div className="flex items-center justify-center gap-2 font-display text-lg font-semibold text-white">
-                <p>Launch Demo</p>
-                <ArrowRightIcon className="h-4 w-4 stroke-white" />
-              </div>
-            </button>
-
-            <Transition appear show={isOTPOpen} as={Fragment}>
-              <Dialog as="div" className="relative z-50" onClose={closeModal}>
-                <Transition.Child
-                  as={Fragment}
-                  enter="ease-out duration-300"
-                  enterFrom="opacity-0"
-                  enterTo="opacity-100"
-                  leave="ease-in duration-200"
-                  leaveFrom="opacity-100"
-                  leaveTo="opacity-0"
-                >
-                  <div className="fixed inset-0 bg-black bg-opacity-25" />
-                </Transition.Child>
-
-                <div className="fixed inset-0 overflow-y-auto">
-                  <div className="flex min-h-full items-center justify-center p-4 text-center">
-                    <Transition.Child
-                      as={Fragment}
-                      enter="ease-out duration-300"
-                      enterFrom="opacity-0 scale-95"
-                      enterTo="opacity-100 scale-100"
-                      leave="ease-in duration-200"
-                      leaveFrom="opacity-100 scale-100"
-                      leaveTo="opacity-0 scale-95"
+                <div className="h-fit w-full rounded-md border border-gray-200 bg-gray-100/75 px-1 py-1">
+                  <div className="relative flex w-full">
+                    <button
+                      type="button"
+                      className={`z-10 basis-1/2 py-0.5 text-center text-base font-medium transition ${
+                        callOption === 'general'
+                          ? 'text-black'
+                          : 'text-gray-400'
+                      }`}
+                      onClick={() => {
+                        setCallOption('general')
+                        callOptionRef.current?.setAttribute(
+                          'style',
+                          'left: 0%; width: 50%;',
+                        )
+                      }}
                     >
-                      <Dialog.Panel className="flex w-full max-w-sm transform flex-col items-center overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                        <Dialog.Title
-                          as="h3"
-                          className="font-sans text-lg font-medium leading-6 text-gray-900"
-                        >
-                          Enter Verification Code
-                        </Dialog.Title>
-                        <div className="mt-2">
-                          <p className="text-sm text-gray-500">
-                            {`Code has been sent to ${
-                              '+1 ******' + phone.slice(-4)
-                            }`}
-                          </p>
-                        </div>
-                        
-                        <OtpInput
-                          value={otp}
-                          onChange={setOtp}
-                          numInputs={6}
-                          containerStyle={"text-black flex w-full gap-4 justify-center my-3"}
-                          inputStyle={"!w-10 h-12 rounded-md border border-[1.5px] border-gray-300 !outline-none !ring-transparent transition-all focus:border-main focus:outline-none font-sans text-lg text-center text-black"}
-                          renderInput={(props) => <input {...props} />}
-                        />
-
-                        <Button
-                          onClick={closeModal}
-                          color="main"
-                          className={`mt-2 w-full py-1.5 text-base font-medium ${otp.length < 6 ? '!bg-main-400 !hover:bg-main-400' : ''}`}
-                          disabled={otp.length < 6}
-                        >
-                          Verify
-                        </Button>
-                      </Dialog.Panel>
-                    </Transition.Child>
+                      General Inquiry
+                    </button>
+                    <button
+                      type="button"
+                      className={`z-10 basis-1/2 py-0.5 text-center text-base font-medium transition ${
+                        callOption === 'demo' ? 'text-black' : 'text-gray-400'
+                      }`}
+                      onClick={() => {
+                        setCallOption('demo')
+                        callOptionRef.current?.setAttribute(
+                          'style',
+                          'left: 50%; width: 50%;',
+                        )
+                      }}
+                    >
+                      Demo Scheduling
+                    </button>
+                    <span
+                      className="absolute top-0 block h-full rounded-md bg-white shadow transition-all duration-300"
+                      ref={callOptionRef}
+                      style={{ left: '0%', width: '50%' }}
+                    ></span>
                   </div>
                 </div>
-              </Dialog>
-            </Transition>
-          </form>
+              </div>
+
+              <div className="flex w-full flex-col gap-2">
+                <div className="font-sans text-slate-500">
+                  2. Enter your number (confirmation required)
+                </div>
+                <PhoneInput
+                  hideDropdown
+                  forceDialCode
+                  className="flex w-full items-center justify-center gap-2"
+                  inputClassName="w-full !h-10 transition-all !rounded-md !border !border-slate-200 focus:ring-0 !py-2 !px-3 !text-base"
+                  countrySelectorStyleProps={{ buttonClassName: '!border-0' }}
+                  defaultCountry="us"
+                  value={phone}
+                  onChange={(phone) => setPhone(phone)}
+                />
+              </div>
+
+              <div className="flex w-full flex-col gap-2">
+                <div className="font-sans text-slate-500">
+                  3. Tell us a bit about yourself
+                </div>
+                <textarea
+                  placeholder="e.g. I'm Tom, a new grad from Hogwarts"
+                  className="max-h-[80px] min-h-[80px] w-full rounded-md border-gray-200 bg-white/10 px-4 !outline-none !ring-transparent transition-all focus:border-gray-200 focus:outline-none"
+                  style={{ height: '120px' }}
+                ></textarea>
+              </div>
+
+              <button
+                type="button"
+                className={`mt-2 w-full rounded-lg px-4 py-2.5 transition ${
+                  phone.length < 17
+                    ? 'bg-main-400'
+                    : 'bg-main hover:bg-main-600'
+                }`}
+                onClick={openModal}
+                disabled={phone.length < 17}
+              >
+                <div className="flex items-center justify-center gap-2 font-display text-lg font-semibold text-white">
+                  <p>Launch Demo</p>
+                  <ArrowRightIcon className="h-4 w-4 stroke-white" />
+                </div>
+              </button>
+
+              <Transition appear show={isOTPOpen} as={Fragment}>
+                <Dialog as="div" className="relative z-50" onClose={closeModal}>
+                  <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                  >
+                    <div className="fixed inset-0 bg-black bg-opacity-25" />
+                  </Transition.Child>
+
+                  <div className="fixed inset-0 overflow-y-auto">
+                    <div className="flex min-h-full items-center justify-center p-4 text-center">
+                      <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0 scale-95"
+                        enterTo="opacity-100 scale-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100 scale-100"
+                        leaveTo="opacity-0 scale-95"
+                      >
+                        <Dialog.Panel className="flex w-full max-w-sm transform flex-col items-center overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                          <Dialog.Title
+                            as="h3"
+                            className="font-sans text-lg font-medium leading-6 text-gray-900"
+                          >
+                            Enter Verification Code
+                          </Dialog.Title>
+                          <div className="mt-2">
+                            <p className="text-sm text-gray-500">
+                              {`Code has been sent to ${
+                                '+1 ******' + phone.slice(-4)
+                              }`}
+                            </p>
+                          </div>
+
+                          <OtpInput
+                            value={otp}
+                            onChange={setOtp}
+                            numInputs={6}
+                            containerStyle={
+                              'text-black flex w-full gap-4 justify-center my-3'
+                            }
+                            inputStyle={
+                              '!w-10 h-12 rounded-md border border-[1.5px] border-gray-300 !outline-none !ring-transparent transition-all focus:border-main focus:outline-none font-sans text-lg text-center text-black'
+                            }
+                            renderInput={(props) => <input {...props} />}
+                          />
+
+                          <Button
+                            onClick={closeModal}
+                            color="main"
+                            className={`mt-2 w-full py-1.5 text-base font-medium ${
+                              otp.length < 6
+                                ? '!hover:bg-main-400 !bg-main-400'
+                                : ''
+                            }`}
+                            disabled={otp.length < 6}
+                          >
+                            Verify
+                          </Button>
+                        </Dialog.Panel>
+                      </Transition.Child>
+                    </div>
+                  </div>
+                </Dialog>
+              </Transition>
+            </form>
+          </div>
         </div>
-      </div>
-      {/* Trusted by Companies */}
-      {/* <div className="mt-36 lg:mt-40">
+        {/* Trusted by Companies */}
+        {/* <div className="mt-36 lg:mt-40">
         <p className="font-display text-base text-slate-900">
           Trusted by these six companies so far
         </p>
@@ -258,6 +273,7 @@ export function Hero() {
           ))}
         </ul>
       </div> */}
-    </Container>
+      </Container>
+    </section>
   )
 }

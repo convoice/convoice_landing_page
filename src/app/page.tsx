@@ -11,6 +11,7 @@ import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import { ThirdFeatures } from '@/components/ThirdFeatures'
 import { Examples } from '@/components/Examples'
 import { Testimonials } from '@/components/Testimonials'
+import { StepFeatures } from '@/components/StepFeatures'
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <main>
         <Hero />
         <PrimaryFeatures />
+        <StepFeatures />
         <SecondaryFeatures />
         <ThirdFeatures />
         {/* <Testimonials /> */}
