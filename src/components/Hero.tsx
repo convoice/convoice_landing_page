@@ -7,7 +7,7 @@ import { PhoneIcon } from '@heroicons/react/24/outline'
 import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import { Fragment, useState, useRef } from 'react'
 import { PhoneInput } from 'react-international-phone'
-import { OtpInput } from 'react-otp-input'
+import OtpInput  from 'react-otp-input'
 import 'react-international-phone/style.css'
 
 export function Hero() {

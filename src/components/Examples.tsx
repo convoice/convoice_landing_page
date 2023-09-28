@@ -7,7 +7,7 @@ import { NavLink } from '@/components/NavLink'
 import { Button } from '@/components/Button'
 
 interface Example {
-  name: React.ReactNode
+  name: string
   summary: string
 }
 
