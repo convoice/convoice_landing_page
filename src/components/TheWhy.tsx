@@ -14,10 +14,10 @@ import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
 import logoReduceCost from '@/images/logos/reduce-cost.svg'
 import logoIncreaseEfficiency from '@/images/logos/increase-efficiency.svg'
 
-export function ThirdFeatures() {
+export function TheWhy() {
   return (
     <section
-      id="features"
+      id="the-why"
       aria-label="Features for running your books"
       className="relative overflow-hidden bg-slate-100/80 pb-28 pt-20 sm:py-32"
     >
