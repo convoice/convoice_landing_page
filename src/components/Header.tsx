@@ -115,7 +115,7 @@ export function Header() {
               <NavLink href="#features">Features</NavLink>
               <NavLink href="#testimonials">Testimonials</NavLink>
               <NavLink href="#pricing">Pricing</NavLink>
-              <NavLink href="/blog">Blog</NavLink>
+              <NavLink href="https://blog.convoice.ai/">Blog</NavLink>
             </div>
             <Button href="/register" color="main">
               <span>
