@@ -12,7 +12,7 @@ export function Footer() {
         <div className="flex flex-col mx-auto py-24 max-w-5xl items-center justify-center md:py-32 md:flex-row md:items-start md:gap-24 lg:gap-48">
           <Logo showText={false} className="h-28 w-28 md:basis-1/4" />
           <div className="flex flex-col items-center md:items-start">
-            <p className="text-2xl mt-8 md:mt-0 sm:text-3xl md:text-5xl font-semibold font-display text-white md:pr-8">
+            <p className="text-center md:text-left text-2xl mt-8 md:mt-0 sm:text-3xl md:text-5xl font-semibold font-display text-white md:pr-8">
               No code, no diagram, no problem.
             </p>
             <div className="mt-6 flex gap-6 mt-8">

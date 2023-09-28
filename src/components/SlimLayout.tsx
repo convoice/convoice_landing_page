@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import backgroundImage from '@/images/background-auth.jpg'
+import backgroundImage from '@/images/gradient-1.jpg'
 
 export function SlimLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,8 +12,9 @@ export function SlimLayout({ children }: { children: React.ReactNode }) {
           </main>
         </div>
         <div className="hidden sm:contents lg:relative lg:block lg:flex-1">
+          {/* make image blurry */}
           <Image
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full object-cover"
             src={backgroundImage}
             alt=""
             unoptimized
