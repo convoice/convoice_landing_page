@@ -117,9 +117,9 @@ export function Header() {
               <NavLink href="#pricing">Pricing</NavLink>
               <NavLink href="/blog">Blog</NavLink>
             </div>
-            <Button href="/register" color="main">
+            <Button href="/register" color="main" className="hidden md:inline">
               <span>
-                Join waitlist<span className="hidden lg:inline"></span>
+                Join waitlist
               </span>
             </Button>
             <div className="-mr-1 md:hidden">
