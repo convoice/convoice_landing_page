@@ -8,9 +8,9 @@ import { Logo } from '@/components/Logo'
 import { SlimLayout } from '@/components/SlimLayout'
 import { type Metadata } from 'next'
 
-export const metadata: Metadata = {
-  title: 'Sign In',
-}
+// export const metadata: Metadata = {
+//   title: 'Sign In',
+// }
 
 import Image from "next/image";
 import { useEffect, useState } from "react";

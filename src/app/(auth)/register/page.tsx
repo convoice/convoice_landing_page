@@ -9,9 +9,9 @@ import { type Metadata } from 'next'
 
 import celabEmoji from '@/images/emojis/party-emoji.png'
 
-export const metadata: Metadata = {
-  title: 'Sign Up',
-}
+// export const metadata: Metadata = {
+//   title: 'Sign Up',
+// }
 
 export default function Register() {
   return (
