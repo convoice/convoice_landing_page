@@ -46,11 +46,11 @@ export function Hero() {
             </div>
             <div className="mt-10 flex justify-center gap-x-6">
               <Button
-                href="/register"
+                href="/waitlist"
                 color="main"
                 className="px-6 py-3 text-xl font-semibold"
               >
-                Book a demo
+                Join Waitlist
               </Button>
               {/* <Button
           href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"

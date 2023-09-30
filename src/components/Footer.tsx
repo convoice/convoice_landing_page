@@ -16,16 +16,16 @@ export function Footer() {
               No code, no diagram, no problem.
             </p>
             <div className="mt-6 flex gap-6 mt-8">
-              <Button href="/register" color="white" className="">
-                <span className="sm:text-lg text-main-500">Book a demo</span>
+              <Button href="/waitlist" color="white" className="">
+                <span className="sm:text-lg text-main-500">Join Waitlist</span>
               </Button>
-              <Button
-                href="/register"
-                color="none"
-                className=""
-              >
-                <span className="sm:text-lg">Join waitlist</span>
-              </Button>
+              {/*<Button*/}
+              {/*  href="/register"*/}
+              {/*  color="none"*/}
+              {/*  className=""*/}
+              {/*>*/}
+              {/*  <span className="sm:text-lg">Join waitlist</span>*/}
+              {/*</Button>*/}
             </div>
           </div>
         </div>

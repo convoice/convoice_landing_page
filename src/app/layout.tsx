@@ -4,6 +4,7 @@ import clsx from 'clsx'
 
 import '@/styles/tailwind.css'
 import { type Metadata } from 'next'
+import {Header} from "@/components/Header";
 
 export const metadata: Metadata = {
   title: {
@@ -70,7 +71,11 @@ export default function RootLayout({
         generalSans.variable
       )}
     >
-      <body className="flex h-full flex-col">{children}</body>
+      <body className="flex h-full flex-col">
+        <Header />
+        {children}
+      </body>
+
     </html>
   )
 }

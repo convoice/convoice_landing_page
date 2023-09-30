@@ -104,7 +104,7 @@ export function Header() {
       <Container>
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">
-            <Link href="#" aria-label="Home">
+            <Link href="/" aria-label="Home">
               <Logo className="h-9 w-auto" />
             </Link>
           </div>
@@ -120,9 +120,9 @@ export function Header() {
               {/*<NavLink href="#pricing">Pricing</NavLink>*/}
               <NavLink href="https://blog.convoice.ai/">Blog</NavLink>
             </div>
-            <Button href="/register" color="main" className="hidden md:inline">
+            <Button href="/waitlist" color="main" className="hidden md:inline">
               <span>
-                Join waitlist
+                Join Waitlist
               </span>
             </Button>
             <div className="-mr-1 md:hidden">
