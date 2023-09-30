@@ -9,7 +9,6 @@ import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
 import { NavLink } from '@/components/NavLink'
-import {VALID_LOADERS} from "next/dist/shared/lib/image-config";
 
 function MobileNavLink({
   href,
@@ -113,8 +112,8 @@ export function Header() {
               <NavLink href="/login">Sign in</NavLink>
             </div> */}
             <div className="hidden md:flex md:gap-x-4">
+              <NavLink href={"#demo"}>Demo</NavLink>
               <NavLink href="#features">Features</NavLink>
-              <NavLink href={"#the-why"}>Why Convoice?</NavLink>
               <NavLink href={"#faq"}>FAQ</NavLink>
               {/*<NavLink href="#testimonials">Testimonials</NavLink>*/}
               {/*<NavLink href="#pricing">Pricing</NavLink>*/}

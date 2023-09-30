@@ -26,7 +26,7 @@ export function Hero() {
   }
 
   return (
-    <section className='bg-gradient-to-b from-white to-slate-100/80'>
+    <section className='bg-gradient-to-b from-white to-slate-100/80' id='demo'>
       <Container className="pb-24 pt-16 text-center lg:pt-24">
         <div className="flex flex-col items-center gap-16 lg:flex-row">
           <div className="flex max-w-2xl flex-col items-center text-center lg:basis-1/2 lg:items-start lg:text-left">
