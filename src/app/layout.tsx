@@ -4,12 +4,14 @@ import clsx from 'clsx'
 
 import '@/styles/tailwind.css'
 import { type Metadata } from 'next'
-import {Header} from "@/components/Header";
+import { Header } from '@/components/Header'
+import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: {
     template: '%s - Convoice',
-    default: 'Convoice - Automated calling agent made simple for small businesses',
+    default:
+      'Convoice - Automated calling agent made simple for small businesses',
   },
   description:
     'Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.',
@@ -54,7 +56,7 @@ const generalSans = LocalFont({
       style: 'bold',
     },
   ],
-  variable: '--font-general-sans'
+  variable: '--font-general-sans',
 })
 
 export default function RootLayout({
@@ -68,14 +70,23 @@ export default function RootLayout({
       className={clsx(
         'h-full scroll-smooth bg-white antialiased',
         inter.variable,
-        generalSans.variable
+        generalSans.variable,
       )}
     >
+      <Script id={'hotjar'}>
+        {`(function(h,o,t,j,a,r){
+          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+          h._hjSettings={hjid:3672977,hjsv:6};
+          a=o.getElementsByTagName('head')[0];
+          r=o.createElement('script');r.async=1;
+          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+          a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
+      </Script>
       <body className="flex h-full flex-col">
         <Header />
         {children}
       </body>
-
     </html>
   )
 }
