@@ -1,4 +1,7 @@
+"use client"
+
 import { Inter } from 'next/font/google'
+import { useState, useRef } from 'react' 
 import LocalFont from 'next/font/local'
 import clsx from 'clsx'
 
@@ -64,6 +67,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+  const [scrollY, setScrollY] = useState(window.scrollY)
+  window.onscroll = function () {
+    setScrollY(window.scrollY)
+  };
+
   return (
     <html
       lang="en"
@@ -83,8 +92,9 @@ export default function RootLayout({
           a.appendChild(r);
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
       </Script>
-      <body className="flex h-full flex-col">
-        <Header />
+      <body className="relative flex h-full flex-col">
+        <Header/>
+        <Header fixed={true} hidden={scrollY < 1100} offset={((scrollY - 1100)/3) > 76 ? 0 : -84 + (scrollY - 1100)/3}/>
         {children}
       </body>
     </html>

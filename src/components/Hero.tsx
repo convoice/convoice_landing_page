@@ -27,7 +27,7 @@ export function Hero() {
 
   return (
     <section className='bg-gradient-to-b from-white to-slate-100/80' id='demo'>
-      <Container className="pb-24 pt-16 text-center lg:pt-24">
+      <Container className="pb-20 pt-12 text-center lg:pt-20">
         <div className="flex flex-col items-center gap-16 lg:flex-row">
           <div className="flex max-w-2xl flex-col items-center text-center lg:basis-1/2 lg:items-start lg:text-left">
             <h1 className="w-full font-display text-4xl font-semibold text-slate-900 sm:text-6xl">
@@ -66,7 +66,7 @@ export function Hero() {
         </Button> */}
             </div>
           </div>
-          <div className="flex flex-col items-center lg:basis-1/2">
+          <div className="flex flex-col items-center py-12 lg:basis-1/2">
             <div className="flex items-center gap-1 rounded-full border border-[1.5px] border-main bg-main-50 px-2.5 py-0.5 font-display font-medium text-main">
               <PhoneIcon className="h-[18px] w-[18px] stroke-[2px] outline-main" />
               <p>Call Convoice Now</p>

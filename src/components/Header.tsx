@@ -97,9 +97,17 @@ function MobileNavigation() {
   )
 }
 
-export function Header() {
+export function Header({
+  fixed = false,
+  hidden = false,
+  offset = 0,
+}: {
+  fixed?: boolean;
+  hidden?: boolean;
+  offset?: number;
+}) {
   return (
-    <header className="py-10">
+    <header className={`w-full z-10 bg-white/[.85] py-5 backdrop-blur-md ${fixed ? 'fixed top-0' : ''} ${hidden ? 'hidden' : ''}`} style={{ top: offset }}>
       <Container>
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">
