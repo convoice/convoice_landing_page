@@ -102,12 +102,17 @@ export function Header({
   hidden = false,
   offset = 0,
 }: {
-  fixed?: boolean;
-  hidden?: boolean;
-  offset?: number;
+  fixed?: boolean
+  hidden?: boolean
+  offset?: number
 }) {
   return (
-    <header className={`w-full z-10 bg-white/[.85] py-5 backdrop-blur-md ${fixed ? 'fixed top-0' : ''} ${hidden ? 'hidden' : ''}`} style={{ top: offset }}>
+    <header
+      className={`z-10 w-full bg-white/[.85] py-5 backdrop-blur-md ${
+        fixed ? 'fixed top-0' : ''
+      } ${hidden ? 'hidden' : ''}`}
+      style={{ top: offset }}
+    >
       <Container>
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">
@@ -120,17 +125,15 @@ export function Header({
               <NavLink href="/login">Sign in</NavLink>
             </div> */}
             <div className="hidden md:flex md:gap-x-4">
-              <NavLink href={"#demo"}>Demo</NavLink>
+              <NavLink href={'#demo'}>Demo</NavLink>
               <NavLink href="#features">Features</NavLink>
-              <NavLink href={"#faq"}>FAQ</NavLink>
+              <NavLink href={'#faq'}>FAQ</NavLink>
               {/*<NavLink href="#testimonials">Testimonials</NavLink>*/}
               {/*<NavLink href="#pricing">Pricing</NavLink>*/}
               <NavLink href="https://blog.convoice.ai/">Blog</NavLink>
             </div>
             <Button href="/waitlist" color="main" className="hidden md:inline">
-              <span>
-                Join Waitlist
-              </span>
+              <span>Join Waitlist</span>
             </Button>
             <div className="-mr-1 md:hidden">
               <MobileNavigation />

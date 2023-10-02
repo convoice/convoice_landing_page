@@ -1,7 +1,4 @@
-"use client"
-
 import { Inter } from 'next/font/google'
-import { useState, useRef } from 'react' 
 import LocalFont from 'next/font/local'
 import clsx from 'clsx'
 
@@ -9,6 +6,7 @@ import '@/styles/tailwind.css'
 import { type Metadata } from 'next'
 import { Header } from '@/components/Header'
 import Script from 'next/script'
+import HiddenHeader from '@/components/HiddenHeader'
 
 export const metadata: Metadata = {
   title: {
@@ -67,12 +65,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-
-  const [scrollY, setScrollY] = useState(window.scrollY)
-  window.onscroll = function () {
-    setScrollY(window.scrollY)
-  };
-
   return (
     <html
       lang="en"
@@ -93,8 +85,8 @@ export default function RootLayout({
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
       </Script>
       <body className="relative flex h-full flex-col">
-        <Header/>
-        <Header fixed={true} hidden={scrollY < 1100} offset={((scrollY - 1100)/3) > 76 ? 0 : -84 + (scrollY - 1100)/3}/>
+        <Header />
+        <HiddenHeader />
         {children}
       </body>
     </html>
