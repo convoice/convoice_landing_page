@@ -1,27 +1,27 @@
-'use client'
+"use client";
 
-import { Fragment } from 'react'
-import Link from 'next/link'
-import { Popover, Transition } from '@headlessui/react'
-import clsx from 'clsx'
+import { Fragment } from "react";
+import Link from "next/link";
+import { Popover, Transition } from "@headlessui/react";
+import clsx from "clsx";
 
-import { Button } from '@/components/Button'
-import { Container } from '@/components/Container'
-import { Logo } from '@/components/Logo'
-import { NavLink } from '@/components/NavLink'
+import { Button } from "@/components/Button";
+import { Container } from "@/components/Container";
+import { Logo } from "@/components/Logo";
+import { NavLink } from "@/components/NavLink";
 
 function MobileNavLink({
   href,
   children,
 }: {
-  href: string
-  children: React.ReactNode
+  href: string;
+  children: React.ReactNode;
 }) {
   return (
     <Popover.Button as={Link} href={href} className="block w-full p-2">
       {children}
     </Popover.Button>
-  )
+  );
 }
 
 function MobileNavIcon({ open }: { open: boolean }) {
@@ -36,19 +36,19 @@ function MobileNavIcon({ open }: { open: boolean }) {
       <path
         d="M0 1H14M0 7H14M0 13H14"
         className={clsx(
-          'origin-center transition',
-          open && 'scale-90 opacity-0',
+          "origin-center transition",
+          open && "scale-90 opacity-0",
         )}
       />
       <path
         d="M2 2L12 12M12 2L2 12"
         className={clsx(
-          'origin-center transition',
-          !open && 'scale-90 opacity-0',
+          "origin-center transition",
+          !open && "scale-90 opacity-0",
         )}
       />
     </svg>
-  )
+  );
 }
 
 function MobileNavigation() {
@@ -85,16 +85,15 @@ function MobileNavigation() {
             as="div"
             className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg  text-slate-900 shadow-xl ring-1 ring-slate-900/5"
           >
-            <MobileNavLink href="#features">Features</MobileNavLink>
-            <MobileNavLink href="#testimonials">Testimonials</MobileNavLink>
-            <MobileNavLink href="#pricing">Pricing</MobileNavLink>
-            <hr className="m-2 border-slate-300/40" />
-            <MobileNavLink href="/login">Sign in</MobileNavLink>
+            <MobileNavLink href={"/?scrollTo=demo"}>Demo</MobileNavLink>
+            <MobileNavLink href="/?scrollTo=features">Features</MobileNavLink>
+            <MobileNavLink href={"/?scrollTo=faq"}>FAQ</MobileNavLink>
+            <MobileNavLink href="https://blog.convoice.ai/">Blog</MobileNavLink>
           </Popover.Panel>
         </Transition.Child>
       </Transition.Root>
     </Popover>
-  )
+  );
 }
 
 export function Header({
@@ -102,15 +101,15 @@ export function Header({
   hidden = false,
   offset = 0,
 }: {
-  fixed?: boolean
-  hidden?: boolean
-  offset?: number
+  fixed?: boolean;
+  hidden?: boolean;
+  offset?: number;
 }) {
   return (
     <header
       className={`z-10 w-full bg-white/[.85] py-5 backdrop-blur-md ${
-        fixed ? 'fixed top-0' : ''
-      } ${hidden ? 'hidden' : ''}`}
+        fixed ? "fixed top-0" : ""
+      } ${hidden ? "hidden" : ""}`}
       style={{ top: offset }}
     >
       <Container>
@@ -125,9 +124,9 @@ export function Header({
               <NavLink href="/login">Sign in</NavLink>
             </div> */}
             <div className="hidden md:flex md:gap-x-4">
-              <NavLink href={'/?scrollTo=demo'}>Demo</NavLink>
+              <NavLink href={"/?scrollTo=demo"}>Demo</NavLink>
               <NavLink href="/?scrollTo=features">Features</NavLink>
-              <NavLink href={'/?scrollTo=faq'}>FAQ</NavLink>
+              <NavLink href={"/?scrollTo=faq"}>FAQ</NavLink>
               {/*<NavLink href="#testimonials">Testimonials</NavLink>*/}
               {/*<NavLink href="#pricing">Pricing</NavLink>*/}
               <NavLink href="https://blog.convoice.ai/">Blog</NavLink>
@@ -142,5 +141,5 @@ export function Header({
         </nav>
       </Container>
     </header>
-  )
+  );
 }
