@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       'Convoice - Automated calling agent made simple for small businesses',
   },
   description:
-    'Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.',
+    'Convoice helps small businesses automate their calling workflows, saving them time and money, while improving customer satisfaction.',
 }
 
 const inter = Inter({
