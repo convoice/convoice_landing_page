@@ -40,7 +40,7 @@ export default function Home() {
         <TheWhy />
         {/* <Testimonials /> */}
         {/* <Pricing /> */}
-        <Examples />
+        {/*<Examples />*/}
         <Faqs />
         {/* <CallToAction /> */}
       </main>
