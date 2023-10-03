@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: {
     template: '%s - Convoice',
     default:
-      'Convoice - Automated calling agent made simple for small businesses',
+      'Convoice - Automated calling agent made simple for your business',
   },
   description:
     'Convoice helps small businesses automate their calling workflows, saving them time and money, while improving customer satisfaction.',

@@ -215,7 +215,7 @@ function FeaturesDesktop({
         {features.map((feature, index) => (
           <button
             key={index}
-            className=""
+            className="basis-1/3"
             onClick={() => {
               setActiveIndex(index);
             }}
@@ -275,10 +275,10 @@ export function StepFeatures() {
             HOW DOES IT WORK?
           </p>
           <h2 className="mt-2 max-w-3xl font-display text-3xl font-semibold text-slate-900 sm:text-4xl md:text-5xl">
-            Build voice agents with ease
+            Build voicebots with ease
           </h2>
           <p className="mt-4 text-lg  text-slate-700">
-            Within a few minutes, you can build a voice agent, launch it,
+            Within a few minutes, you can build a voicebot, launch it,
             connect it to your phone number, and start collecting meaningful
             data from call analytics.
           </p>

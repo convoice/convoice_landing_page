@@ -35,7 +35,7 @@ export function Hero() {
               <span className="relative whitespace-nowrap text-main-500">
                 <span className="relative">made simple</span>
               </span>{" "}
-              for small businesses.
+              for your business.
             </h1>
             <div className="mx-auto mt-6 max-w-3xl text-xl text-slate-700">
               <p>
@@ -141,7 +141,7 @@ export function Hero() {
                   3. Tell us a bit about yourself
                 </div>
                 <textarea
-                  placeholder="e.g. I'm Tom, a new grad from Hogwarts"
+                  placeholder="e.g. I'm Tom, a coffee shop owner in LA."
                   className="max-h-[80px] min-h-[80px] w-full rounded-md border-gray-200 bg-white/10 px-4 !outline-none !ring-transparent transition-all focus:border-gray-200 focus:outline-none"
                   style={{ height: "120px" }}
                 ></textarea>
