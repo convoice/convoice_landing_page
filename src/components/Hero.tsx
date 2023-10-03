@@ -1,46 +1,46 @@
-import Image from 'next/image'
+import Image from "next/image";
 
-import { Dialog, Transition } from '@headlessui/react'
-import { Button } from '@/components/Button'
-import { Container } from '@/components/Container'
-import { PhoneIcon } from '@heroicons/react/24/outline'
-import { ArrowRightIcon } from '@heroicons/react/24/solid'
-import { Fragment, useState, useRef } from 'react'
-import { PhoneInput } from 'react-international-phone'
-import OtpInput  from 'react-otp-input'
-import 'react-international-phone/style.css'
+import { Dialog, Transition } from "@headlessui/react";
+import { Button } from "@/components/Button";
+import { Container } from "@/components/Container";
+import { PhoneIcon } from "@heroicons/react/24/outline";
+import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import { Fragment, useState, useRef } from "react";
+import { PhoneInput } from "react-international-phone";
+import OtpInput from "react-otp-input";
+import "react-international-phone/style.css";
 
 export function Hero() {
-  const [phone, setPhone] = useState('')
-  const callOptionRef = useRef<HTMLDivElement>(null)
-  const [callOption, setCallOption] = useState<'general' | 'demo'>('general')
+  const [phone, setPhone] = useState("");
+  const callOptionRef = useRef<HTMLDivElement>(null);
+  const [callOption, setCallOption] = useState<"general" | "demo">("general");
 
-  const [otp, setOtp] = useState('')
-  let [isOTPOpen, setIsOTPOpen] = useState(false)
+  const [otp, setOtp] = useState("");
+  let [isOTPOpen, setIsOTPOpen] = useState(false);
   function closeModal() {
-    setIsOTPOpen(false)
+    setIsOTPOpen(false);
   }
   function openModal() {
-    setOtp('')
-    setIsOTPOpen(true)
+    setOtp("");
+    setIsOTPOpen(true);
   }
 
   return (
-    <section className='bg-gradient-to-b from-white to-slate-100/80' id='demo'>
+    <section className="bg-gradient-to-b from-white to-slate-100/80" id="demo">
       <Container className="pb-20 pt-12 text-center lg:pt-20">
         <div className="flex flex-col items-center gap-16 lg:flex-row">
           <div className="flex max-w-2xl flex-col items-center text-center lg:basis-1/2 lg:items-start lg:text-left">
             <h1 className="w-full font-display text-4xl font-semibold text-slate-900 sm:text-6xl">
-              AI voice agents{' '}
+              AI voice agents{" "}
               <span className="relative whitespace-nowrap text-main-500">
                 <span className="relative">made simple</span>
-              </span>{' '}
+              </span>{" "}
               for small businesses.
             </h1>
             <div className="mx-auto mt-6 max-w-3xl text-xl text-slate-700">
               <p>
-                Businesses use Convoice to build, test, and launch automated
-                voice agents.
+                Use Convoice to build, test, and launch automated voice agents
+                for your business. Start with just a few clicks.
               </p>
               {/* <p>No diagram, no code, no hassle.</p> */}
             </div>
@@ -82,16 +82,16 @@ export function Hero() {
                     <button
                       type="button"
                       className={`z-10 basis-1/2 py-0.5 text-center text-base font-medium transition ${
-                        callOption === 'general'
-                          ? 'text-black'
-                          : 'text-gray-400'
+                        callOption === "general"
+                          ? "text-black"
+                          : "text-gray-400"
                       }`}
                       onClick={() => {
-                        setCallOption('general')
+                        setCallOption("general");
                         callOptionRef.current?.setAttribute(
-                          'style',
-                          'left: 0%; width: 50%;',
-                        )
+                          "style",
+                          "left: 0%; width: 50%;",
+                        );
                       }}
                     >
                       General Inquiry
@@ -99,14 +99,14 @@ export function Hero() {
                     <button
                       type="button"
                       className={`z-10 basis-1/2 py-0.5 text-center text-base font-medium transition ${
-                        callOption === 'demo' ? 'text-black' : 'text-gray-400'
+                        callOption === "demo" ? "text-black" : "text-gray-400"
                       }`}
                       onClick={() => {
-                        setCallOption('demo')
+                        setCallOption("demo");
                         callOptionRef.current?.setAttribute(
-                          'style',
-                          'left: 50%; width: 50%;',
-                        )
+                          "style",
+                          "left: 50%; width: 50%;",
+                        );
                       }}
                     >
                       Demo Scheduling
@@ -114,7 +114,7 @@ export function Hero() {
                     <span
                       className="absolute top-0 block h-full rounded-md bg-white shadow transition-all duration-300"
                       ref={callOptionRef}
-                      style={{ left: '0%', width: '50%' }}
+                      style={{ left: "0%", width: "50%" }}
                     ></span>
                   </div>
                 </div>
@@ -129,7 +129,7 @@ export function Hero() {
                   forceDialCode
                   className="flex w-full items-center justify-center gap-2"
                   inputClassName="w-full !h-10 transition-all !rounded-md !border !border-slate-200 focus:ring-0 !py-2 !px-3 !text-base"
-                  countrySelectorStyleProps={{ buttonClassName: '!border-0' }}
+                  countrySelectorStyleProps={{ buttonClassName: "!border-0" }}
                   defaultCountry="us"
                   value={phone}
                   onChange={(phone) => setPhone(phone)}
@@ -143,7 +143,7 @@ export function Hero() {
                 <textarea
                   placeholder="e.g. I'm Tom, a new grad from Hogwarts"
                   className="max-h-[80px] min-h-[80px] w-full rounded-md border-gray-200 bg-white/10 px-4 !outline-none !ring-transparent transition-all focus:border-gray-200 focus:outline-none"
-                  style={{ height: '120px' }}
+                  style={{ height: "120px" }}
                 ></textarea>
               </div>
 
@@ -151,8 +151,8 @@ export function Hero() {
                 type="button"
                 className={`mt-2 w-full rounded-lg px-4 py-2.5 transition ${
                   phone.length < 17
-                    ? 'bg-main-400'
-                    : 'bg-main hover:bg-main-600'
+                    ? "bg-main-400"
+                    : "bg-main hover:bg-main-600"
                 }`}
                 onClick={openModal}
                 disabled={phone.length < 17}
@@ -198,7 +198,7 @@ export function Hero() {
                           <div className="mt-2">
                             <p className="text-sm text-gray-500">
                               {`Code has been sent to ${
-                                '+1 ******' + phone.slice(-4)
+                                "+1 ******" + phone.slice(-4)
                               }`}
                             </p>
                           </div>
@@ -208,10 +208,10 @@ export function Hero() {
                             onChange={setOtp}
                             numInputs={6}
                             containerStyle={
-                              'text-black flex w-full gap-4 justify-center my-3'
+                              "text-black flex w-full gap-4 justify-center my-3"
                             }
                             inputStyle={
-                              '!w-10 h-12 rounded-md border border-[1.5px] border-gray-300 !outline-none !ring-transparent transition-all focus:border-main focus:outline-none font-sans text-lg text-center text-black'
+                              "!w-10 h-12 rounded-md border border-[1.5px] border-gray-300 !outline-none !ring-transparent transition-all focus:border-main focus:outline-none font-sans text-lg text-center text-black"
                             }
                             renderInput={(props) => <input {...props} />}
                           />
@@ -221,8 +221,8 @@ export function Hero() {
                             color="main"
                             className={`mt-2 w-full py-1.5 text-base font-medium ${
                               otp.length < 6
-                                ? '!hover:bg-main-400 !bg-main-400'
-                                : ''
+                                ? "!hover:bg-main-400 !bg-main-400"
+                                : ""
                             }`}
                             disabled={otp.length < 6}
                           >
@@ -275,5 +275,5 @@ export function Hero() {
       </div> */}
       </Container>
     </section>
-  )
+  );
 }

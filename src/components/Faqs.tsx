@@ -1,61 +1,77 @@
-import Image from 'next/image'
+import Image from "next/image";
 
-import { Container } from '@/components/Container'
-import backgroundImage from '@/images/background-faqs.jpg'
+import { Container } from "@/components/Container";
+import backgroundImage from "@/images/background-faqs.jpg";
 
 const faqs = [
   [
     {
-      question: 'Does Convoice handle VAT?',
+      question: "What is Convoice?",
       answer:
-        'Well no, but if you move your company offshore you can probably ignore it.',
+        "We offer a cost-effective self-service platform using Large Language Models (LLM) to allow businesses" +
+        ", especially SMBs, to craft custom chat and voice service agents. " +
+        "We help you enhance customer experience by providing more human-like, sophisticated responses that are tailored towards your business. ",
     },
     {
-      question: 'Can I pay for my subscription via purchase order?',
-      answer: 'Absolutely, we are happy to take your money in all forms.',
+      question: "Why do you use LLM?",
+      answer:
+        "LLM stands for Large Language Model. It's a new kind of AI trained on vast amounts of text to understand and generate human-like responses. A well-known example is ChatGPT. " +
+        "Convoice uses this technology to create highly sophisticated and responsive voice agents.\n",
     },
     {
-      question: 'How do I apply for a job at Convoice?',
+      question: "What do the voice agents do?",
       answer:
-        'We only hire our customers, so subscribe for a minimum of 6 months and then let’s talk.',
+        "Our LLM-powered voice agents can handle many daily customer interactions, such as providing information about " +
+        "products or services, scheduling appointments or visits, actively gathering feedback, " +
+        "and making personalize recommendations. They work 24/7 and guarantee a consistent, caring customer experience.",
     },
   ],
   [
     {
-      question: 'What was that testimonial about tax fraud all about?',
+      question: "Why should I choose Convoice over training more human agents?",
       answer:
-        'Convoice is just a software application, ultimately your books are your responsibility.',
+        "Convoice not only reduces customer service costs by up to 96% but also ensures accuracy, consistency, " +
+        "and 24/7 availability. This means your customers get immediate, satisfying answers to more general inquiries, " +
+        "freeing your human agents to handle more unique situations.",
+    },
+    {
+      question: "Is Convoice actually affordable for my business?",
+      answer:
+        "Absolutely! Convoice’s solutions are designed to be affordable, costing as low as $1 per hour. " +
+        "Additionally, it can significantly reduce the average operational costs, especially for businesses without in-house customer support." +
+        " We also offer a free trial period to help you get started with no pressure to pay.",
     },
     {
       question:
-        'Convoice sounds horrible but why do I still feel compelled to purchase?',
+        "How does Convoice improve customer experience and satisfaction?",
       answer:
-        'This is the power of excellent visual design. You just can’t resist it, no matter how poorly it actually functions.',
-    },
-    {
-      question:
-        'I found other companies called Convoice, are you sure you can use this name?',
-      answer:
-        'Honestly not sure at all. We haven’t actually incorporated or anything, we just thought it sounded cool and made this website.',
+        "With Convoice, customers no longer face long wait times and get immediate, accurate answers to their queries. " +
+        "Our AI agents are tuned to be empathetic and caring, providing a consistent and satisfying experience for every customer." +
+        " The agents can also provide useful context when escalating to a human. ",
     },
   ],
   [
     {
-      question: 'How do you generate reports?',
+      question: "What do I need to build a voice agent?",
       answer:
-        'You just tell us what data you need a report for, and we get our kids to create beautiful charts for you using only the finest crayons.',
+        "It's really simple to get started! Once you sign up and create your own voice agent, you can start customizing it by f" +
+        "eeding it documents and images related to your business. If you have transcripts from previous customer interactions, we can parse them as well.",
     },
     {
-      question: 'Can we expect more inventory features?',
-      answer: 'In life it’s really better to never expect anything at all.',
+      question: "How secure are my data?",
+      answer:
+        "Convoice employs cutting-edge technology and security practices to ensure your customer data is protected. " +
+        "We prioritize the safety and reliability of our services and the data generated. " +
+        "Only you and Convoice have access to customer interactions with the voice agents",
     },
     {
-      question: 'I lost my password, how do I get into my account?',
+      question: "Do I need a tech expert to set up Convoice for my business?",
       answer:
-        'Send us an email and we will send you a copy of our latest password spreadsheet so you can find your information.',
+        "No! Convoice is designed to be user-friendly and abstracts away all the cutting-edge technology. Our platform allows even " +
+        "those without a technical background to seamlessly set up and deploy voice and chat agents for their businesses.",
     },
   ],
-]
+];
 
 export function Faqs() {
   return (
@@ -66,19 +82,21 @@ export function Faqs() {
     >
       <Container className="relative">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <p className="text-main-500 font-display text-sm font-semibold sm:text-base">
+          <p className="font-display text-sm font-semibold text-main-500 sm:text-base">
             FREQUENTLY ASKED QUESTIONS
           </p>
           <h2
             id="faq-title"
-            className="mt-2 font-sans tracking-tight text-3xl font-semibold text-slate-900 sm:text-4xl"
+            className="mt-2 font-sans text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl"
           >
             Everything you need to know
           </h2>
           <p className="mt-4 text-lg text-slate-700">
-            If you can’t find what you’re looking for,{' '}
-            <span className="text-main-500 cursor-pointer font-medium hover:underline">
-              reach out to us
+            If you can’t find what you’re looking for,{" "}
+            <span className="cursor-pointer font-medium text-main-500 hover:underline">
+              <a href="mailto:ashwin@convoice.ai?subject=Question about Product&body=Hello, I have a question about...">
+                shoot us an email
+              </a>
             </span>
             .
           </p>
@@ -89,7 +107,10 @@ export function Faqs() {
         >
           {faqs.map((row, rowIndex) => (
             <li key={rowIndex}>
-              <ul role="list" className="flex lg:flex-row lg:gap-x-12 lg:gap-y-0 flex-col gap-y-8">
+              <ul
+                role="list"
+                className="flex flex-col gap-y-8 lg:flex-row lg:gap-x-12 lg:gap-y-0"
+              >
                 {row.map((faq, faqIndex) => (
                   <li key={faqIndex} className="lg:basis-1/3">
                     <h3 className="font-display text-lg font-semibold leading-7 text-slate-900">
@@ -106,5 +127,5 @@ export function Faqs() {
         </ul>
       </Container>
     </section>
-  )
+  );
 }
