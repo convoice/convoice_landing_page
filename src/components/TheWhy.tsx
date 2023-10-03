@@ -114,8 +114,8 @@ export function TheWhy() {
                   landscape almost overnight. I saw the opportunity to build a
                   product that can help customers like me. In fact, people have
                   been trying to make all kinds of automated agents to call on
-                  users' behalf, such as ordering pizzas. However, I wanted to
-                  take it a step further, by directly optimizing the business
+                  users&apos behalf, such as ordering pizzas. However, I wanted
+                  to take it a step further, by directly optimizing the business
                   side of customer interactions. With Convoice, we can help
                   businesses improve efficiency and reduce cost, while providing
                   a better customer experience, ultimately benefiting everyone.

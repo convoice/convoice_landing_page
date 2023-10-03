@@ -8,7 +8,7 @@ export default function Page() {
           {/*</h2>*/}
           <p className="font-poppins mb-8 mt-4 text-lg font-medium leading-8 text-gray-600">
             Glad you want to sign up for early-access! Currently, we are working
-            with a small group of pilot customers, but we'll be rolling out
+            with a small group of pilot customers, but we will be rolling out
             general access soon!
           </p>
           <iframe
@@ -16,10 +16,10 @@ export default function Page() {
             src="https://airtable.com/embed/shrHuBJX9mBEwBOBf?backgroundColor=orangeLight"
             width="100%"
             height="1000"
-            style={{ background: 'transparent', border: '1px solid #ccc' }}
+            style={{ background: "transparent", border: "1px solid #ccc" }}
           ></iframe>
         </div>
       </div>
     </>
-  )
+  );
 }
