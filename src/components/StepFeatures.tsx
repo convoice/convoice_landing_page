@@ -1,31 +1,31 @@
-'use client'
+"use client";
 
-import { useState, useEffect, useId, useRef } from 'react'
-import Image, { type ImageProps } from 'next/image'
-import { Tab } from '@headlessui/react'
-import clsx from 'clsx'
+import { useState, useEffect, useId, useRef } from "react";
+import Image, { type ImageProps } from "next/image";
+import { Tab } from "@headlessui/react";
+import clsx from "clsx";
 
-import { Container } from '@/components/Container'
-import screenshotContacts from '@/images/screenshots/contacts.png'
-import screenshotInventory from '@/images/screenshots/inventory.png'
-import screenshotProfitLoss from '@/images/screenshots/profit-loss.png'
+import { Container } from "@/components/Container";
+import screenshotContacts from "@/images/screenshots/contacts.png";
+import screenshotInventory from "@/images/screenshots/inventory.png";
+import screenshotProfitLoss from "@/images/screenshots/profit-loss.png";
 
 interface Feature {
-  name: React.ReactNode
-  summary: string
-  description: string
-  image: ImageProps['src']
-  icon: React.ComponentType
-  mobile?: boolean
-  ref?: React.RefObject<HTMLDivElement>
+  name: React.ReactNode;
+  summary: string;
+  description: string;
+  image: ImageProps["src"];
+  icon: React.ComponentType;
+  mobile?: boolean;
+  ref?: React.RefObject<HTMLDivElement>;
 }
 
 const features: Array<Feature> = [
   {
-    name: 'Connect',
-    summary: 'Stay on top of things with always up-to-date reporting features.',
+    name: "Connect",
+    summary: "Stay on top of things with always up-to-date reporting features.",
     description:
-      'We talked about reporting in the section above but we needed three items here, so mentioning it one more time for posterity.',
+      "We talked about reporting in the section above but we needed three items here, so mentioning it one more time for posterity.",
     image: screenshotProfitLoss,
     icon: function ConnectIcon() {
       return (
@@ -40,15 +40,15 @@ const features: Array<Feature> = [
             fill="#fff"
           />
         </>
-      )
+      );
     },
   },
   {
-    name: 'Build',
+    name: "Build",
     summary:
-      'Never lose track of what’s in stock with accurate inventory tracking.',
+      "Never lose track of what’s in stock with accurate inventory tracking.",
     description:
-      'We don’t offer this as part of our software but that statement is inarguably true. Accurate inventory tracking would help you for sure.',
+      "We don’t offer this as part of our software but that statement is inarguably true. Accurate inventory tracking would help you for sure.",
     image: screenshotInventory,
     icon: function InventoryIcon() {
       return (
@@ -68,18 +68,18 @@ const features: Array<Feature> = [
             fill="#fff"
           />
         </>
-      )
+      );
     },
   },
   {
-    name: 'Monitor',
+    name: "Monitor",
     summary:
-      'Organize all of your contacts, service providers, and invoices in one place.',
+      "Organize all of your contacts, service providers, and invoices in one place.",
     description:
-      'This also isn’t actually a feature, it’s just some friendly advice. We definitely recommend that you do this, you’ll feel really organized and professional.',
+      "This also isn’t actually a feature, it’s just some friendly advice. We definitely recommend that you do this, you’ll feel really organized and professional.",
     image: screenshotContacts,
     icon: function MonitorIcon() {
-      let id = useId()
+      let id = useId();
       return (
         <>
           <defs>
@@ -103,10 +103,10 @@ const features: Array<Feature> = [
             strokeLinejoin="round"
           />
         </>
-      )
+      );
     },
   },
-]
+];
 
 function Feature({
   feature,
@@ -114,27 +114,26 @@ function Feature({
   mobile,
   className,
   ...props
-}: React.ComponentPropsWithoutRef<'div'> & {
-  feature: Feature
-  isActive: boolean
-  mobile: boolean
+}: React.ComponentPropsWithoutRef<"div"> & {
+  feature: Feature;
+  isActive: boolean;
+  mobile: boolean;
 }) {
-
   return (
     <div
       className={clsx(
         className,
-        'relative overflow-hidden rounded-xl p-6 text-start',
-        isActive && 'text-black',
-        !isActive && 'text-slate-600',
+        "relative overflow-hidden rounded-xl p-6 text-start",
+        isActive && "text-black",
+        !isActive && "text-slate-600",
       )}
       {...props}
     >
       <div className="flex items-center gap-3">
         <div
           className={clsx(
-            'w-9 rounded-lg transition-all duration-200',
-            isActive ? 'bg-main-500' : 'bg-slate-400',
+            "w-9 rounded-lg transition-all duration-200",
+            isActive ? "bg-main-500" : "bg-slate-400",
           )}
         >
           <svg aria-hidden="true" className="h-9 w-9" fill="none">
@@ -143,8 +142,8 @@ function Feature({
         </div>
         <h3
           className={clsx(
-            'font-display text-lg font-semibold transition-all duration-200',
-            isActive ? 'text-main-500' : 'text-slate-400',
+            "font-display text-lg font-semibold transition-all duration-200",
+            isActive ? "text-main-500" : "text-slate-400",
           )}
         >
           {feature.name}
@@ -152,8 +151,8 @@ function Feature({
       </div>
       <p
         className={clsx(
-          'mt-4 font-sans text-base font-medium leading-6 transition-all duration-200',
-          isActive ? 'text-main-500' : 'text-slate-400',
+          "mt-4 font-sans text-base font-medium leading-6 transition-all duration-200",
+          isActive ? "text-main-500" : "text-slate-400",
         )}
       >
         {feature.summary}
@@ -172,7 +171,7 @@ function Feature({
         style={{ width: isActive ? '100%' : '0%' }}
       ></div> */}
     </div>
-  )
+  );
 }
 
 function FeaturesMobile() {
@@ -188,7 +187,7 @@ function FeaturesMobile() {
           />
           <div className="relative mt-10 pb-10">
             <div className="absolute -inset-x-4 bottom-0 top-8 sm:-inset-x-6" />
-            <div className="relative mx-auto min-w-[560px] sm:w-full overflow-hidden rounded-xl bg-white shadow-lg shadow-slate-900/5 ring-1 ring-slate-500/10">
+            <div className="relative mx-auto min-w-[560px] overflow-hidden rounded-xl bg-white shadow-lg shadow-slate-900/5 ring-1 ring-slate-500/10 sm:w-full">
               <Image
                 className="w-full"
                 src={feature.image}
@@ -200,15 +199,15 @@ function FeaturesMobile() {
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 function FeaturesDesktop({
   activeIndex,
   setActiveIndex,
 }: {
-  activeIndex: number
-  setActiveIndex: (index: number) => void
+  activeIndex: number;
+  setActiveIndex: (index: number) => void;
 }) {
   return (
     <div className="flex hidden w-full flex-col rounded-2xl border border-[1.5px] bg-white px-8 pt-8 md:mt-16 md:block">
@@ -218,7 +217,7 @@ function FeaturesDesktop({
             key={index}
             className=""
             onClick={() => {
-              setActiveIndex(index)
+              setActiveIndex(index);
             }}
           >
             <Feature
@@ -232,12 +231,12 @@ function FeaturesDesktop({
         ))}
       </div>
 
-      <div className="mt-6 mx-auto relative w-full lg:w-[85%] pb-[40%] overflow-hidden rounded-t-2xl border-t border-x border-t-[1.5px] border-x-[1.5px]">
+      <div className="relative mx-auto mt-6 w-full overflow-hidden rounded-t-2xl border-x border-x-[1.5px] border-t border-t-[1.5px] pb-[40%] lg:w-[85%]">
         {features.map((feature, index) => (
           <div
             key={index}
             className={`absolute w-full transition-all duration-200 ${
-              index !== activeIndex ? 'opacity-0' : 'opacity-100'
+              index !== activeIndex ? "opacity-0" : "opacity-100"
             }`}
           >
             <Image
@@ -250,20 +249,19 @@ function FeaturesDesktop({
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export function StepFeatures() {
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex((activeIndex + 1) % 3)
-    }, 5000)
+      setActiveIndex((activeIndex + 1) % 3);
+    }, 5000);
 
-    return () => clearInterval(interval)
-  }, [activeIndex])
+    return () => clearInterval(interval);
+  }, [activeIndex]);
 
   return (
     <section
@@ -276,20 +274,21 @@ export function StepFeatures() {
           <p className="font-display text-sm font-semibold text-main-500 sm:text-base">
             HOW DOES IT WORK?
           </p>
-          <h2 className="mt-2 max-w-2xl font-display text-3xl font-semibold text-slate-900 sm:text-4xl md:text-5xl">
-            Build voice agent with ease
+          <h2 className="mt-2 max-w-3xl font-display text-3xl font-semibold text-slate-900 sm:text-4xl md:text-5xl">
+            Build voice agents with ease
           </h2>
           <p className="mt-4 text-lg  text-slate-700">
-            Because you’d probably be a little confused if we suggested you
-            complicate your everyday business tasks instead.
+            Within a few minutes, you can build a voice agent, launch it,
+            connect it to your phone number, and start collecting meaningful
+            data from call analytics.
           </p>
         </div>
         <FeaturesMobile />
-        <FeaturesDesktop
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-        />
+        {/*<FeaturesDesktop*/}
+        {/*  activeIndex={activeIndex}*/}
+        {/*  setActiveIndex={setActiveIndex}*/}
+        {/*/>*/}
       </Container>
     </section>
-  )
+  );
 }
