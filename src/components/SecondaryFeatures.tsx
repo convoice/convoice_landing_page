@@ -49,8 +49,7 @@ export function SecondaryFeatures() {
                   Build for scale and complexity
                 </h2>
                 <p className="mt-6 text-left font-sans text-lg font-medium text-slate-600">
-                  With Convoice, you no longer need extra staff for call
-                  answering. Convoice can handle all of that for you.
+                  With Convoice, you no longer need extra personnel to manage call answering tasks. Convoice can handle all of that for you
                 </p>
               </div>
               <div className="bg-main-100 h-[640px]  rounded-3xl md:basis-7/12"></div>
@@ -65,8 +64,7 @@ export function SecondaryFeatures() {
                   Build for scale and complexity
                 </h2>
                 <p className="mt-6 text-left font-sans text-lg font-medium text-slate-600">
-                  With Convoice, you no longer need extra staff for call
-                  answering. Convoice can handle all of that for you.
+                  With Convoice, you no longer need extra personnel to manage call answering tasks. Convoice can handle all of that for you
                 </p>
               </div>
               <div className="bg-main-100 h-[640px]  rounded-3xl md:basis-7/12"></div>

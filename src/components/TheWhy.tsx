@@ -49,12 +49,9 @@ export function TheWhy() {
                         Save time and money on hiring and training new staff.
                       </p>
                       <p className="mt-6 text-left font-sans text-lg font-medium text-slate-600">
-                        We are here to help you setup the level of customer
-                        service automation that used to be exclusive to large
-                        corporations. With Convoice, you can save time and money
-                        on acquiring and managing new staff. Our voice agents
-                        can be trained instantly and operate 24/7 at a fraction
-                        of the cost.
+                        We are here to empower you with the same high-level customer service automation that was once reserved for major corporations.
+                        With Convoice, you can save substantial time and money with staff acquisition and management.
+                        Additionally, our voice agents can be trained instantaneously and can operate 24/7 at a fraction of the cost.
                       </p>
                     </div>
                   </div>
@@ -76,11 +73,9 @@ export function TheWhy() {
                         Grow fast without worrying about customer service, ever.
                       </p>
                       <p className="mt-6 text-left font-sans text-lg font-medium text-slate-600">
-                        With Convoice, you can safely delegate most of the daily
-                        customer interactions to our voice agents, so you can be
-                        more cost-efficient and focus on growing your business,
-                        knowing that you have a scalable high-quality customer
-                        service always available to your customers.
+                        With Convoice, you can safely delegate most of your daily customer interactions to our voice agents.
+                        You can instead be more cost-efficient and focus on growing your business,
+                        knowing that you have a scalable high-quality customer service that is always available to your customers.
                       </p>
                     </div>
                   </div>
@@ -100,30 +95,25 @@ export function TheWhy() {
                   Hi there,
                 </p>
                 <p className="mt-6 text-left font-sans text-lg text-slate-600">
-                  About a year ago, I had a major surgery and was hospitalized
-                  for almost a month. I was lucky to recover well. The real
-                  headache, however, started after I was discharged. I had to
-                  deal with hospital bills, insurance claims, medical equipment
-                  rentals, and many times calling ahead to make sure places can
-                  accommodate me. I ended up calling dozens of times a day and
-                  spent probably 20+ hours just waiting to speak with a human in
-                  a single month. I was frustrated and exhausted.
+                  About a year ago, I had a major surgery and was hospitalized for almost a month.
+                  I was lucky to recover well. The real headache, however, started after I was discharged.
+                  I had to deal with hospital bills, insurance claims, medical equipment rentals,
+                  and constantly calling hospitals to ask if they could accommodate me. In a single month,
+                  I ended up calling dozens of times every day and spent probably 20+ hours just waiting to speak with a human.
+                  I was frustrated and exhausted.
                 </p>
                 <p className="mt-6 text-left font-sans text-lg text-slate-600">
-                  A few months later, ChatGPT was released to reshape the AI
-                  landscape almost overnight. I saw the opportunity to build a
-                  product that can help customers like me. In fact, people have
-                  been trying to make all kinds of automated agents to call on
-                  users&apos behalf, such as ordering pizzas. However, I wanted
-                  to take it a step further, by directly optimizing the business
-                  side of customer interactions. With Convoice, we can help
-                  businesses improve efficiency and reduce cost, while providing
-                  a better customer experience, ultimately benefiting everyone.
+                  A few months later, ChatGPT was released, reshaping the AI landscape almost overnight.
+                  I saw the opportunity to build a product that could help customers like me.
+                  People have been trying to make all kinds of automated agents to call on users&apos behalf,
+                  such as ordering pizzas. However, I wanted to take it a step further by directly optimizing
+                  the business side of customer interactions. With Convoice, we can help businesses improve
+                  efficiency and reduce cost, while providing a better customer experience, ultimately benefiting everyone.
                 </p>
                 <p className="mt-6 text-left font-sans text-lg text-slate-600">
-                  If you are interested in seeing how the latest AI will
-                  transform your customer service, and help your customers get
-                  support quickly and effortlessly, please give us a try.
+                  If you are interested in seeing how the latest AI
+                  will transform your customer service and help your
+                  customers receive support quickly and effortlessly, please give us a try.
                 </p>
                 <p className="mt-6 text-left font-sans text-lg text-slate-600">
                   Thanks,

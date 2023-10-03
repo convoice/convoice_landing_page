@@ -55,7 +55,7 @@ const features: Array<Feature> = [
   },
   {
     name: 'Appointment booking',
-    summary: 'Let your customers book appointments with your voice agent.',
+    summary: 'Let your customers book seamlessly book appointments with your voice agent.',
     description:
       'We talked about reporting in the section above but we needed three items here, so mentioning it one more time for posterity.',
     icon: function ReportingIcon() {
@@ -67,7 +67,7 @@ const features: Array<Feature> = [
   {
     name: 'Product promotion',
     summary:
-      'Promote your products and services to your customers with your voice agent.',
+      'Enhance brand publicity by promoting your products and services to customers with your voice agent.',
     description:
       'We don’t offer this as part of our software but that statement is inarguably true. Accurate inventory tracking would help you for sure.',
     icon: function InventoryIcon() {
