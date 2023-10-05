@@ -7,6 +7,7 @@ import { HeroDemo } from "@/components/HeroDemo";
 import { Pricing } from "@/components/Pricing";
 import { PrimaryFeatures } from "@/components/PrimaryFeatures";
 import { SecondaryFeatures } from "@/components/SecondaryFeatures";
+import { MajorFeatures } from "@/components/MajorFeatures";
 import { TheWhy } from "@/components/TheWhy";
 import { Examples } from "@/components/Examples";
 import { Testimonials } from "@/components/Testimonials";
@@ -35,8 +36,9 @@ export default function Home() {
       <main>
         <HeroDemo />
         <PrimaryFeatures />
-        <StepFeatures />
+        {/* <StepFeatures /> */}
         {/* <SecondaryFeatures /> */}
+        <MajorFeatures />
         <TheWhy />
         {/* <Testimonials /> */}
         {/* <Pricing /> */}

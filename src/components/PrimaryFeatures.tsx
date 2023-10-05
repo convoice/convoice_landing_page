@@ -126,7 +126,7 @@ export function PrimaryFeatures() {
     <section
       id="primary-features"
       aria-label="Features for simplifying everyday business tasks"
-      className="bg-slate-100/80 py-8"
+      className="bg-slate-100/80 pt-8 pb-16"
     >
       <Container>
         <div className="mx-auto max-w-2xl md:text-center mb-14 hidden">
