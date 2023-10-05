@@ -94,8 +94,8 @@ export function Faqs() {
           <p className="mt-4 text-lg text-slate-700">
             If you can’t find what you’re looking for,{" "}
             <span className="cursor-pointer font-medium text-main-500 hover:underline">
-              <a href="mailto:ashwin@convoice.ai?subject=Question about Product&body=Hello, I have a question about...">
-                shoot us an email
+              <a href="https://airtable.com/appXOXLykawlP3s5a/shrnYvAi4XWjrDQVg">
+                Contact us!
               </a>
             </span>
             .

@@ -1,8 +1,8 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-import { Button } from '@/components/Button'
-import { Logo } from '@/components/Logo'
-import { SlimLayout } from '@/components/SlimLayout'
+import { CustomButton } from "@/components/CustomButton";
+import { Logo } from "@/components/Logo";
+import { SlimLayout } from "@/components/SlimLayout";
 
 export default function NotFound() {
   return (
@@ -19,9 +19,9 @@ export default function NotFound() {
       <p className="mt-3 text-sm text-gray-700">
         Sorry, we couldn’t find the page you’re looking for.
       </p>
-      <Button href="/" className="mt-10" color='main'>
+      <CustomButton href="/" className="mt-10" color="main">
         Go back home
-      </Button>
+      </CustomButton>
     </SlimLayout>
-  )
+  );
 }

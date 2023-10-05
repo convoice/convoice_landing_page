@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 
-import { Button } from "@/components/Button";
+import { CustomButton } from "@/components/CustomButton";
 import { Container } from "@/components/Container";
 import { Logo } from "@/components/Logo";
 import { NavLink } from "@/components/NavLink";
@@ -131,9 +131,13 @@ export function Header({
               {/*<NavLink href="#pricing">Pricing</NavLink>*/}
               <NavLink href="https://blog.convoice.ai/">Blog</NavLink>
             </div>
-            <Button href="/waitlist" color="main" className="hidden md:inline">
+            <CustomButton
+              href="https://airtable.com/appUsQg5CdJxsjRyX/shrbG6xQ7P9JNbOti"
+              color="main"
+              className="hidden md:inline"
+            >
               <span>Join Waitlist</span>
-            </Button>
+            </CustomButton>
             <div className="-mr-1 md:hidden">
               <MobileNavigation />
             </div>

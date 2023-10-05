@@ -1,24 +1,24 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-import { Container } from '@/components/Container'
-import { Logo } from '@/components/Logo'
-import { NavLink } from '@/components/NavLink'
-import { Button } from '@/components/Button'
+import { Container } from "@/components/Container";
+import { Logo } from "@/components/Logo";
+import { NavLink } from "@/components/NavLink";
+import { CustomButton } from "@/components/CustomButton";
 
 export function Footer() {
   return (
-    <footer className="bg-main-500 rounded-t-[32px] sm:rounded-t-[48px]">
+    <footer className="rounded-t-[32px] bg-main-500 sm:rounded-t-[48px]">
       <Container>
-        <div className="flex flex-col mx-auto py-24 max-w-5xl items-center justify-center md:py-32 md:flex-row md:items-start md:gap-24 lg:gap-48">
+        <div className="mx-auto flex max-w-5xl flex-col items-center justify-center py-24 md:flex-row md:items-start md:gap-24 md:py-32 lg:gap-48">
           <Logo showText={false} className="h-28 w-28 md:basis-1/4" />
           <div className="flex flex-col items-center md:items-start">
-            <p className="text-center md:text-left text-2xl mt-8 md:mt-0 sm:text-3xl md:text-5xl font-semibold font-display text-white md:pr-8">
+            <p className="mt-8 text-center font-display text-2xl font-semibold text-white sm:text-3xl md:mt-0 md:pr-8 md:text-left md:text-5xl">
               No code, no diagram, no problem.
             </p>
-            <div className="mt-6 flex gap-6 mt-8">
-              <Button href="/waitlist" color="white" className="">
-                <span className="sm:text-lg text-main-500">Join Waitlist</span>
-              </Button>
+            <div className="mt-6 mt-8 flex gap-6">
+              <CustomButton href="/waitlist" color="white" className="">
+                <span className="text-main-500 sm:text-lg">Join Waitlist</span>
+              </CustomButton>
               {/*<Button*/}
               {/*  href="/register"*/}
               {/*  color="none"*/}
@@ -31,21 +31,31 @@ export function Footer() {
         </div>
 
         <div className="flex items-center border-t border-white/50 py-8 sm:justify-between">
-        <p className="font-semibold text-xl text-white hidden sm:inline">Convoice</p>
-        <nav
-            className="text-sm mt-0 mx-auto sm:mx-0"
+          <p className="hidden text-xl font-semibold text-white sm:inline">
+            Convoice
+          </p>
+          <nav
+            className="mx-auto mt-0 text-sm sm:mx-0"
             aria-label="quick links"
           >
             <div className="-my-1 flex justify-center gap-x-6">
-              <NavLink href="#features" color='white'>Features</NavLink>
-              <NavLink href="#testimonials" color='white'>Testimonials</NavLink>
-              <NavLink href="#pricing" color='white'>Pricing</NavLink>
-              <NavLink href="/blog" color='white'>Blog</NavLink>
+              <NavLink href="#features" color="white">
+                Features
+              </NavLink>
+              <NavLink href="#testimonials" color="white">
+                Testimonials
+              </NavLink>
+              <NavLink href="#pricing" color="white">
+                Pricing
+              </NavLink>
+              <NavLink href="/blog" color="white">
+                Blog
+              </NavLink>
             </div>
           </nav>
         </div>
 
-        <div className="flex flex-col items-center border-t border-white/50 pt-6 pb-12 sm:flex-row-reverse sm:justify-between">
+        <div className="flex flex-col items-center border-t border-white/50 pb-12 pt-6 sm:flex-row-reverse sm:justify-between">
           <div className="flex gap-x-6">
             <Link
               href="https://twitter.com"
@@ -78,5 +88,5 @@ export function Footer() {
         </div>
       </Container>
     </footer>
-  )
+  );
 }

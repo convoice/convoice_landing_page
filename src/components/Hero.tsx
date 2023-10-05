@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { Dialog, Transition } from "@headlessui/react";
-import { Button } from "@/components/Button";
+import { CustomButton } from "@/components/CustomButton";
 import { Container } from "@/components/Container";
 import { PhoneIcon } from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
@@ -45,13 +45,13 @@ export function Hero() {
               {/* <p>No diagram, no code, no hassle.</p> */}
             </div>
             <div className="mt-10 flex justify-center gap-x-6">
-              <Button
-                href="/waitlist"
+              <CustomButton
+                href="https://airtable.com/appUsQg5CdJxsjRyX/shrbG6xQ7P9JNbOti"
                 color="main"
                 className="px-6 py-3 text-xl font-semibold"
               >
                 Join Waitlist
-              </Button>
+              </CustomButton>
               {/* <Button
           href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
           variant="outline"
@@ -216,7 +216,7 @@ export function Hero() {
                             renderInput={(props) => <input {...props} />}
                           />
 
-                          <Button
+                          <CustomButton
                             onClick={closeModal}
                             color="main"
                             className={`mt-2 w-full py-1.5 text-base font-medium ${
@@ -227,7 +227,7 @@ export function Hero() {
                             disabled={otp.length < 6}
                           >
                             Verify
-                          </Button>
+                          </CustomButton>
                         </Dialog.Panel>
                       </Transition.Child>
                     </div>

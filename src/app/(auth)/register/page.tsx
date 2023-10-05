@@ -1,13 +1,13 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-import { Button } from '@/components/Button'
-import { SelectField, TextField } from '@/components/Fields'
-import { Logo } from '@/components/Logo'
-import { SlimLayout } from '@/components/SlimLayout'
-import Image, { type ImageProps } from 'next/image'
-import { type Metadata } from 'next'
+import { CustomButton } from "@/components/CustomButton";
+import { SelectField, TextField } from "@/components/Fields";
+import { Logo } from "@/components/Logo";
+import { SlimLayout } from "@/components/SlimLayout";
+import Image, { type ImageProps } from "next/image";
+import { type Metadata } from "next";
 
-import celabEmoji from '@/images/emojis/party-emoji.png'
+import celabEmoji from "@/images/emojis/party-emoji.png";
 
 // export const metadata: Metadata = {
 //   title: 'Sign Up',
@@ -24,18 +24,18 @@ export default function Register() {
           <div className="mt-6 flex font-display text-base font-semibold text-default">
             You are finally here!
             <Image
-              className="fill-current h-6 w-6 ml-2"
+              className="ml-2 h-6 w-6 fill-current"
               src={celabEmoji}
               alt=""
             />
           </div>
-          <div className="font-display mt-4 flex bg-gradient-to-r from-[#FF635E] from-0% via-[#F453ED] via-50% to-[#593EFF] to-95% bg-clip-text py-1 text-3xl font-semibold text-default text-transparent">
+          <div className="mt-4 flex bg-gradient-to-r from-[#FF635E] from-0% via-[#F453ED] via-50% to-[#593EFF] to-95% bg-clip-text py-1 font-display text-3xl font-semibold text-default text-transparent">
             Sign up to Convoice
           </div>
           <div className="mt-2 flex font-display text-base font-medium text-gray-500">
             Join the easiest tool to build AI agents today.
           </div>
-          <button className="bg-main hover:bg-main-600 mx-auto mt-6 flex items-center rounded-lg px-8 py-2 font-display text-base font-medium text-white transition-all duration-300">
+          <button className="mx-auto mt-6 flex items-center rounded-lg bg-main px-8 py-2 font-display text-base font-medium text-white transition-all duration-300 hover:bg-main-600">
             <svg
               width="18"
               height="18"
@@ -53,10 +53,10 @@ export default function Register() {
           </button>
         </div>
         <div className="mt-4 text-center font-display text-sm font-medium text-gray-400">
-          Already have an account?{' '}
+          Already have an account?{" "}
           <Link href="/login" className="underline">
             Sign in
-          </Link>{' '}
+          </Link>{" "}
           here!
         </div>
         {/* <div className="mt-4 text-center font-display text-xs font-normal text-gray-300">
@@ -64,5 +64,5 @@ export default function Register() {
         </div> */}
       </div>
     </div>
-  )
+  );
 }
