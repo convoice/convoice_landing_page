@@ -23,15 +23,15 @@ const faqs = [
       answer:
         "Our LLM-powered voice agents can handle many daily customer interactions, such as providing information about " +
         "products or services, scheduling appointments or visits, actively gathering feedback, " +
-        "and making personalize recommendations. They work 24/7 and guarantee a consistent, caring customer experience.",
+        "and making personalized recommendations. They work 24/7 and guarantee a consistent, caring customer experience.",
     },
   ],
   [
     {
       question: "Why should I choose Convoice over training more human agents?",
       answer:
-        "Convoice not only reduces customer service costs by up to 96% but also ensures accuracy, consistency, " +
-        "and 24/7 availability. This means your customers get immediate, satisfying answers to more general inquiries, " +
+        "Convoice not only reduces customer service costs by up to 96% but we also ensures accuracy, consistency, " +
+        "and 24/7 availability. This enables your customers receive immediate, satisfying answers to more general inquiries, " +
         "freeing your human agents to handle more unique situations.",
     },
     {
@@ -45,9 +45,9 @@ const faqs = [
       question:
         "How does Convoice improve customer experience and satisfaction?",
       answer:
-        "With Convoice, customers no longer face long wait times and get immediate, accurate answers to their queries. " +
-        "Our AI agents are tuned to be empathetic and caring, providing a consistent and satisfying experience for every customer." +
-        " The agents can also provide useful context when escalating to a human. ",
+        "With Convoice, customers no longer face long wait times and instead get immediate, accurate answers to their queries." +
+        " Our AI agents are tuned to be empathetic and caring, providing a consistent and satisfying experience for every customer. " +
+        "The agents can also provide useful context when escalating more unique queries to a human.",
     },
   ],
   [
@@ -58,17 +58,17 @@ const faqs = [
         "eeding it documents and images related to your business. If you have transcripts from previous customer interactions, we can parse them as well.",
     },
     {
-      question: "How secure are my data?",
+      question: "How secure is my data?",
       answer:
         "Convoice employs cutting-edge technology and security practices to ensure your customer data is protected. " +
         "We prioritize the safety and reliability of our services and the data generated. " +
-        "Only you and Convoice have access to customer interactions with the voice agents",
+        "Only you and Convoice have access to customer interactions with our voice agents.",
     },
     {
       question: "Do I need a tech expert to set up Convoice for my business?",
       answer:
-        "No! Convoice is designed to be user-friendly and abstracts away all the cutting-edge technology. Our platform allows even " +
-        "those without a technical background to seamlessly set up and deploy voice and chat agents for their businesses.",
+        "No! Convoice is designed to be user-friendly and simplifies the process of using our cutting-edge technology." +
+        " Our platform allows even those without a technical background to seamlessly set up and deploy voice and chat agents for their business.",
     },
   ],
 ];
