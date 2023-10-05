@@ -43,6 +43,11 @@ export function Hero() {
     setIsOTPOpen(true);
   }
 
+  const startSMSVerification = () => {
+    if (!phoneValid) return;
+    const formattedPhone = formatNumber(phone);
+  };
+
   return (
     <section className="bg-gradient-to-b from-white to-slate-100/80" id="demo">
       <Container className="pb-20 pt-12 text-center lg:pt-20">
@@ -70,18 +75,6 @@ export function Hero() {
               >
                 Join Waitlist
               </CustomButton>
-              {/* <Button
-          href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-          variant="outline"
-        >
-          <svg
-            aria-hidden="true"
-            className="h-3 w-3 flex-none fill-blue-600 group-active:fill-current"
-          >
-            <path d="m9.997 6.91-7.583 3.447A1 1 0 0 1 1 9.447V2.553a1 1 0 0 1 1.414-.91L9.997 5.09c.782.355.782 1.465 0 1.82Z" />
-          </svg>
-          <span className="ml-3">Watch video</span>
-        </Button> */}
             </div>
           </div>
           <div className="flex flex-col items-center py-12 lg:basis-1/2">
