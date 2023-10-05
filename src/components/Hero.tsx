@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { Dialog, Transition } from "@headlessui/react";
 import { CustomButton } from "@/components/CustomButton";
 import { Container } from "@/components/Container";
@@ -9,9 +7,20 @@ import { Fragment, useState, useRef } from "react";
 import { PhoneInput } from "react-international-phone";
 import OtpInput from "react-otp-input";
 import "react-international-phone/style.css";
+import { PhoneNumberUtil } from "google-libphonenumber";
+
+const phoneUtil = PhoneNumberUtil.getInstance();
+const isPhoneValid = (phone: string) => {
+  try {
+    return phoneUtil.isValidNumber(phoneUtil.parseAndKeepRawInput(phone));
+  } catch (error) {
+    return false;
+  }
+};
 
 export function Hero() {
   const [phone, setPhone] = useState("");
+  const [phoneValid, setPhoneValid] = useState(false);
   const callOptionRef = useRef<HTMLDivElement>(null);
   const [callOption, setCallOption] = useState<"general" | "demo">("general");
 
@@ -67,12 +76,13 @@ export function Hero() {
             </div>
           </div>
           <div className="flex flex-col items-center py-12 lg:basis-1/2">
-            <div className="flex items-center gap-1 rounded-full border border-[1.5px] border-main bg-main-50 px-2.5 py-0.5 font-display font-medium text-main">
+            <div className="flex items-center gap-1 rounded-full border-[1.5px] border-main bg-main-50 px-2.5 py-0.5 font-display font-medium text-main">
               <PhoneIcon className="h-[18px] w-[18px] stroke-[2px] outline-main" />
               <p>Call Convoice Now</p>
             </div>
 
-            <form className="mt-6 flex w-full flex-col items-start gap-6 rounded-xl border border-[1.5px] border-slate-100 bg-white p-12 text-left font-sans shadow-lg">
+            <form className="mt-6 flex w-full flex-col items-start gap-6 rounded-xl  border-[1.5px] border-slate-100 bg-white p-12 text-left font-sans shadow-lg">
+              {/*CALL OPTION SECTION*/}
               <div className="flex w-full flex-col gap-2">
                 <div className="font-sans text-slate-500">
                   1. Select call option
@@ -111,6 +121,7 @@ export function Hero() {
                     >
                       Demo Scheduling
                     </button>
+                    {/*Animation for 300ms*/}
                     <span
                       className="absolute top-0 block h-full rounded-md bg-white shadow transition-all duration-300"
                       ref={callOptionRef}
@@ -120,6 +131,7 @@ export function Hero() {
                 </div>
               </div>
 
+              {/*PHONE NUMBER INPUT SECTION*/}
               <div className="flex w-full flex-col gap-2">
                 <div className="font-sans text-slate-500">
                   2. Enter your number (confirmation required)
@@ -132,8 +144,16 @@ export function Hero() {
                   countrySelectorStyleProps={{ buttonClassName: "!border-0" }}
                   defaultCountry="us"
                   value={phone}
-                  onChange={(phone) => setPhone(phone)}
+                  onChange={(phone) => {
+                    setPhone(phone);
+                    setPhoneValid(isPhoneValid(phone));
+                  }}
                 />
+                {phone.length >= 17 && !phoneValid ? (
+                  <div className="mt-1 flex items-center justify-center rounded-md border border-red-400 bg-red-100 p-1 text-red-700">
+                    Please enter a valid US number
+                  </div>
+                ) : null}
               </div>
 
               <div className="flex w-full flex-col gap-2">
@@ -150,12 +170,10 @@ export function Hero() {
               <button
                 type="button"
                 className={`mt-2 w-full rounded-lg px-4 py-2.5 transition ${
-                  phone.length < 17
-                    ? "bg-main-400"
-                    : "bg-main hover:bg-main-600"
+                  !phoneValid ? "bg-main-400" : "bg-main hover:bg-main-600"
                 }`}
                 onClick={openModal}
-                disabled={phone.length < 17}
+                disabled={!phoneValid}
               >
                 <div className="flex items-center justify-center gap-2 font-display text-lg font-semibold text-white">
                   <p>Launch Demo</p>
