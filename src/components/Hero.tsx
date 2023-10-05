@@ -3,7 +3,7 @@ import { CustomButton } from "@/components/CustomButton";
 import { Container } from "@/components/Container";
 import { PhoneIcon } from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
-import { Fragment, useState, useRef } from "react";
+import { Fragment, useRef, useState } from "react";
 import { PhoneInput } from "react-international-phone";
 import OtpInput from "react-otp-input";
 import "react-international-phone/style.css";
@@ -18,9 +18,18 @@ const isPhoneValid = (phone: string) => {
   }
 };
 
+/**
+ * Removes all non-numeric characters from a phone number, resulting in +2131112222
+ * @param phone
+ */
+const formatNumber = (phone: string) => {
+  return phone.replace(/\D+/g, "");
+};
+
 export function Hero() {
   const [phone, setPhone] = useState("");
   const [phoneValid, setPhoneValid] = useState(false);
+  const [name, setName] = useState("Dear customer");
   const callOptionRef = useRef<HTMLDivElement>(null);
   const [callOption, setCallOption] = useState<"general" | "demo">("general");
 
@@ -158,12 +167,15 @@ export function Hero() {
 
               <div className="flex w-full flex-col gap-2">
                 <div className="font-sans text-slate-500">
-                  3. Tell us a bit about yourself
+                  3. Tell us how we should address you
                 </div>
                 <textarea
-                  placeholder="e.g. I'm Tom, a coffee shop owner in LA."
+                  placeholder="Tommy Lee"
                   className="max-h-[80px] min-h-[80px] w-full rounded-md border-gray-200 bg-white/10 px-4 !outline-none !ring-transparent transition-all focus:border-gray-200 focus:outline-none"
                   style={{ height: "120px" }}
+                  onChange={(text) => {
+                    setName(text.target.value);
+                  }}
                 ></textarea>
               </div>
 
