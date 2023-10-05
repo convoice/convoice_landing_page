@@ -3,13 +3,14 @@ import { CustomButton } from "@/components/CustomButton";
 import { Container } from "@/components/Container";
 import { PhoneIcon } from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useCallback, useRef, useState } from "react";
 import { PhoneInput } from "react-international-phone";
 import OtpInput from "react-otp-input";
 import "react-international-phone/style.css";
 import { PhoneNumberUtil } from "google-libphonenumber";
 
 const phoneUtil = PhoneNumberUtil.getInstance();
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const isPhoneValid = (phone: string) => {
   try {
     return phoneUtil.isValidNumber(phoneUtil.parseAndKeepRawInput(phone));
@@ -26,12 +27,14 @@ const formatNumber = (phone: string) => {
   return phone.replace(/\D+/g, "");
 };
 
-export function Hero() {
+export function HeroDemo() {
   const [phone, setPhone] = useState("");
   const [phoneValid, setPhoneValid] = useState(false);
   const [name, setName] = useState("Dear customer");
   const callOptionRef = useRef<HTMLDivElement>(null);
   const [callOption, setCallOption] = useState<"general" | "demo">("general");
+  const [sendSMSError, setSendSMSError] = useState(false);
+  const [mayRetry, setMayRetry] = useState(true);
 
   const [otp, setOtp] = useState("");
   let [isOTPOpen, setIsOTPOpen] = useState(false);
@@ -43,10 +46,55 @@ export function Hero() {
     setIsOTPOpen(true);
   }
 
-  const startSMSVerification = () => {
-    if (!phoneValid) return;
-    const formattedPhone = formatNumber(phone);
+  const handleError = () => {
+    setSendSMSError(true);
+    setMayRetry(false);
+    setTimeout(() => {
+      setSendSMSError(false);
+      setMayRetry(true);
+    }, 2200);
   };
+
+  const sendSMSVerification = useCallback(async () => {
+    const formattedPhone = formatNumber(phone);
+    try {
+      const response = await fetch(
+        `${API_URL}/demo/startVerify?phone=${formattedPhone}`,
+      );
+
+      if (!response.ok) {
+        handleError();
+        return;
+      }
+      setSendSMSError(false);
+      openModal();
+    } catch (error) {
+      console.error("There was an error!", error);
+      handleError();
+    }
+  }, [phone]);
+
+  // const verifySMS = useCallback(async () => {
+  //   const formattedPhone = formatNumber(phone);
+  //   const preambleStr = `Hi ${name}, this is Convoice calling!`;
+  //   try {
+  //     const response = await fetch(
+  //       `${API_URL}/demo/verify?phone=${formattedPhone}&code=${otp}&preamble=${preambleStr}`,
+  //     );
+  //
+  //     if (!response.ok) {
+  //       handleError();
+  //       return;
+  //     }
+  //     setSendSMSError(false);
+  //     closeModal();
+  //   } catch (error) {
+  //     console.error("There was an error!", error);
+  //     handleError();
+  //   }
+  // }, [phone, otp]);
+
+  const sendSMSDisabled = !phoneValid || !mayRetry;
 
   return (
     <section className="bg-gradient-to-b from-white to-slate-100/80" id="demo">
@@ -175,10 +223,10 @@ export function Hero() {
               <button
                 type="button"
                 className={`mt-2 w-full rounded-lg px-4 py-2.5 transition ${
-                  !phoneValid ? "bg-main-400" : "bg-main hover:bg-main-600"
+                  sendSMSDisabled ? "bg-main-400" : "bg-main hover:bg-main-600"
                 }`}
-                onClick={openModal}
-                disabled={!phoneValid}
+                onClick={sendSMSVerification}
+                disabled={sendSMSDisabled}
               >
                 <div className="flex items-center justify-center gap-2 font-display text-lg font-semibold text-white">
                   <p>Launch Demo</p>
@@ -186,6 +234,7 @@ export function Hero() {
                 </div>
               </button>
 
+              {/*SMS Modal*/}
               <Transition appear show={isOTPOpen} as={Fragment}>
                 <Dialog as="div" className="relative z-50" onClose={closeModal}>
                   <Transition.Child
@@ -257,6 +306,13 @@ export function Hero() {
                   </div>
                 </Dialog>
               </Transition>
+              {sendSMSError ? (
+                <div className="fixed inset-0 z-50 flex items-center justify-center">
+                  <div className="flex items-center justify-center rounded-md border border-red-400 bg-red-100 p-1 text-red-700">
+                    There was an error sending the verification code.
+                  </div>
+                </div>
+              ) : null}
             </form>
           </div>
         </div>
