@@ -16,7 +16,11 @@ export function Footer() {
               No code, no diagram, no problem.
             </p>
             <div className="mt-6 mt-8 flex gap-6">
-              <CustomButton href="/waitlist" color="white" className="">
+              <CustomButton
+                href="https://airtable.com/appUsQg5CdJxsjRyX/shrbG6xQ7P9JNbOti"
+                color="white"
+                className=""
+              >
                 <span className="text-main-500 sm:text-lg">Join Waitlist</span>
               </CustomButton>
               {/*<Button*/}
