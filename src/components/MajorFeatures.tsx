@@ -19,14 +19,14 @@ export function MajorFeatures() {
     <section
       id="features"
       aria-label="Convoice Major Features"
-      className="pb-14 pt-20 sm:pb-20 sm:pt-32 md:pb-32"
+      className="py-16 sm:py-20 md:py-24"
     >
       <Container className="relative">
         <div className="mx-auto max-w-2xl md:text-center">
           <p className="font-display text-sm font-semibold text-main-500 sm:text-base">
             HOW CAN CONVOICE HELP?
           </p>
-          <h2 className="mt-2 max-w-3xl font-display text-3xl font-semibold text-slate-900 sm:text-4xl md:text-5xl">
+          <h2 className="mt-2 max-w-3xl font-display text-3xl font-semibold text-slate-900 sm:text-4xl">
             Build voicebots with ease
           </h2>
           <p className="mt-4 text-lg  text-slate-700">

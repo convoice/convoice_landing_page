@@ -267,20 +267,20 @@ export function StepFeatures() {
     <section
       id="step-features"
       aria-label="Features for simplifying everyday business tasks"
-      className="bg-slate-100/80 pb-14 pt-20 sm:pb-20 sm:pt-32 md:pb-32"
+      className="bg-slate-100/80 py-16 sm:py-20 md:py-24"
     >
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">
           <p className="font-display text-sm font-semibold text-main-500 sm:text-base">
             HOW DOES IT WORK?
           </p>
-          <h2 className="mt-2 max-w-3xl font-display text-3xl font-semibold text-slate-900 sm:text-4xl md:text-5xl">
+          <h2 className="mt-2 max-w-3xl font-display text-3xl font-semibold text-slate-900 sm:text-4xl">
             Build voicebots with ease
           </h2>
           <p className="mt-4 text-lg  text-slate-700">
-            Within a few minutes, you can build a voicebot, launch it,
-            connect it to your phone number, and start collecting meaningful
-            data from call analytics.
+            Within a few minutes, you can build a voicebot, launch it, connect
+            it to your phone number, and start collecting meaningful data from
+            call analytics.
           </p>
         </div>
         <FeaturesMobile />

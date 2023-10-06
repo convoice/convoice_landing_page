@@ -116,7 +116,7 @@ export function Pricing() {
     <section
       id="pricing"
       aria-label="Pricing"
-      className="bg-slate-900 py-20 sm:py-32"
+      className="bg-slate-900 py-20 sm:py-24"
     >
       <Container>
         <div className="md:text-center">

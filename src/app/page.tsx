@@ -8,6 +8,7 @@ import { Pricing } from "@/components/Pricing";
 import { PrimaryFeatures } from "@/components/PrimaryFeatures";
 import { SecondaryFeatures } from "@/components/SecondaryFeatures";
 import { MajorFeatures } from "@/components/MajorFeatures";
+import { Integrations } from "@/components/Integrations";
 import { TheWhy } from "@/components/TheWhy";
 import { Examples } from "@/components/Examples";
 import { Testimonials } from "@/components/Testimonials";
@@ -39,6 +40,7 @@ export default function Home() {
         {/* <StepFeatures /> */}
         {/* <SecondaryFeatures /> */}
         <MajorFeatures />
+        <Integrations />
         <TheWhy />
         {/* <Testimonials /> */}
         {/* <Pricing /> */}

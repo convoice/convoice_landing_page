@@ -14,16 +14,15 @@ export function TheWhy() {
     <section
       id="the-why"
       aria-label="Features for running your books"
-      className="relative overflow-hidden bg-slate-100/80 pb-28 pt-20 sm:py-32"
+      className="relative overflow-hidden bg-slate-100/80 pb-28 pt-20 sm:py-24"
     >
       <Container className="relative">
         <div className="md:mx-auto md:text-center xl:max-w-none">
           <p className="font-display text-sm font-semibold text-main-500 sm:text-base">
             WHY YOU SHOULD USE CONVOICE?
           </p>
-          <h2 className="mt-2 max-w-2xl font-display text-3xl font-semibold text-slate-900 sm:text-4xl md:mx-auto md:text-5xl">
-            Unlock the potential of your business with AI-powered customer
-            service
+          <h2 className="mt-2 max-w-2xl font-display text-3xl font-semibold text-slate-900 sm:text-4xl md:mx-auto">
+            Unlock Business Potential with AI-Powered Customer Service
           </h2>
 
           <div className="mt-16 flex flex-col gap-8">
@@ -43,14 +42,12 @@ export function TheWhy() {
                       <p className="mt-2 text-left font-display text-3xl font-semibold text-slate-900">
                         Save time and money on hiring and training new staff.
                       </p>
-                      <p className="mt-6 text-left font-sans text-lg font-medium text-slate-600">
-                        We are here to empower you with the same high-level
-                        customer service automation that was once reserved for
-                        major corporations. With Convoice, you can save
-                        substantial time and money with staff acquisition and
-                        management. Additionally, our voice agents can be
-                        trained instantaneously and can operate 24/7 at a
-                        fraction of the cost.
+                      <p className="font-regular mt-6 text-left font-sans text-lg text-slate-600">
+                        We are here to empower you you with advanced customer
+                        service automation, once exclusive to major
+                        corporations. Save time and money with our 24/7,
+                        dedicated, instantly trainable voice agents. Say goodbye
+                        to staffing hassles.
                       </p>
                     </div>
                   </div>
@@ -71,13 +68,11 @@ export function TheWhy() {
                       <p className="mt-2 text-left font-display text-3xl font-semibold text-slate-900">
                         Grow fast without worrying about customer service, ever.
                       </p>
-                      <p className="mt-6 text-left font-sans text-lg font-medium text-slate-600">
-                        With Convoice, you can safely delegate most of your
-                        daily customer interactions to our voice agents. You can
-                        instead be more cost-efficient and focus on growing your
-                        business, knowing that you have a scalable high-quality
-                        customer service that is always available to your
-                        customers.
+                      <p className="font-regular mt-6 text-left font-sans text-lg text-slate-600">
+                        With Convoice, you can confidently entrust the majority
+                        of your customer interactions to our advanced voicebots,
+                        freeing you to focus on your core business with
+                        reliable, always-available customer service.
                       </p>
                     </div>
                   </div>

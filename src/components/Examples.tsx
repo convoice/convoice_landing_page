@@ -65,7 +65,7 @@ export function Examples() {
           <p className="font-display text-sm font-semibold text-main-100 sm:text-base">
             USE CASE EXAMPLES
           </p>
-          <h2 className="mt-2 max-w-2xl font-display text-3xl font-semibold text-white sm:text-4xl md:mx-auto md:text-5xl">
+          <h2 className="mt-2 max-w-2xl font-display text-3xl font-semibold text-white sm:text-4xl md:mx-auto">
             Explore what others have built with Convoice
           </h2>
         </div>
