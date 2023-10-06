@@ -222,7 +222,7 @@ export function HeroDemo() {
 
               <button
                 type="button"
-                className={`mt-2 w-full rounded-lg px-4 py-2.5 transition ${
+                className={`mt-2 w-full rounded-lg px-4 py-2.5 transition active:scale-[98%] ${
                   sendSMSDisabled ? "bg-main-400" : "bg-main hover:bg-main-600"
                 }`}
                 onClick={sendSMSVerification}

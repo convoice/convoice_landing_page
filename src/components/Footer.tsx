@@ -43,14 +43,14 @@ export function Footer() {
             aria-label="quick links"
           >
             <div className="-my-1 flex justify-center gap-x-6">
+              <NavLink href="#demo" color="white">
+                Demo
+              </NavLink>
               <NavLink href="#features" color="white">
                 Features
               </NavLink>
-              <NavLink href="#testimonials" color="white">
-                Testimonials
-              </NavLink>
-              <NavLink href="#pricing" color="white">
-                Pricing
+              <NavLink href="#faq" color="white">
+                FAQ
               </NavLink>
               <NavLink href="/blog" color="white">
                 Blog

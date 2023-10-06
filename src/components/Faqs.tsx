@@ -95,7 +95,7 @@ export function Faqs() {
             If you can’t find what you’re looking for,{" "}
             <span className="cursor-pointer font-medium text-main-500 hover:underline">
               <a href="https://airtable.com/appXOXLykawlP3s5a/shrnYvAi4XWjrDQVg">
-                Contact us!
+                Contact us
               </a>
             </span>
             .
