@@ -74,6 +74,27 @@ export function HeroDemo() {
     }
   }, [phone]);
 
+  
+  const startDemo = useCallback(async () => {
+    const formattedPhone = formatNumber(phone);
+    console.log(otp);
+    try {
+      const response = await fetch(
+        `${API_URL}/demo?code=${otp}&preamble=${name}&phone=${formattedPhone}`,
+      );
+
+      if (!response.ok) {
+        handleError();
+        return;
+      }
+      setSendSMSError(false);
+      closeModal();
+    } catch (error) {
+      console.error("There was an error!", error);
+      handleError();
+    }
+  }, [phone]);
+
   // const verifySMS = useCallback(async () => {
   //   const formattedPhone = formatNumber(phone);
   //   const preambleStr = `Hi ${name}, this is Convoice calling!`;
@@ -289,7 +310,7 @@ export function HeroDemo() {
                           />
 
                           <CustomButton
-                            onClick={closeModal}
+                            onClick={startDemo}
                             color="main"
                             className={`mt-2 w-full py-1.5 text-base font-medium ${
                               otp.length < 6
