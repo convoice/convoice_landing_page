@@ -12,7 +12,7 @@ const integrations = [
     name: "Yelp",
     logo: (
       <svg
-        className="h-[50px] w-[50px]"
+        className="h-[44px] w-[44px]"
         viewBox="0 0 150 200"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@ const integrations = [
     name: "Google Maps",
     logo: (
       <svg
-        className="h-[54px] w-[54px]"
+        className="h-[48px] w-[48px]"
         viewBox="-55.5 0 367 367"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
@@ -198,8 +198,8 @@ export function Integrations() {
       aria-label="Convoice Supported Integrations"
       className="py-16 sm:py-20 md:py-24"
     >
-      <Container className="relative">
-        <div className="mx-auto max-w-2xl md:text-center">
+      <Container className="relative w-full">
+        <div className="mx-auto max-w-2xl md:text-center overflow-auto">
           <p className="font-display text-sm font-semibold text-main-500 sm:text-base">
             SIMPLE INTEGRATION
           </p>
@@ -212,16 +212,17 @@ export function Integrations() {
           </p>
         </div>
 
-        <div className="relative mt-6 flex items-center justify-center gap-2.5 py-6 px-2 sm:px-8   md:px-16 w-fit mx-auto">
+        <div className="relative max-w-full overflow-x-auto overflow-y-hidden mt-6 flex gap-1 sm:gap-2.5 pt-6 pb-8 sm:px-2 w-fit mx-auto">
           {integrations.map((integration, index) => (
             <div
               key={index}
-              className="flex h-20 w-20 items-center justify-center rounded-2xl border border-[2px] border-gray-100 bg-white p-2 shadow-xl"
+              className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-2xl border border-[2px] border-gray-100 bg-white p-2 shadow-xl"
             >
               {integration.logo}
             </div>
           ))}
-          <div className="z-50 absolute h-full w-full bg-gradient-to-r from-white via-white/0 to-white"></div>
+          <div className="z-50 absolute invisible sm:visible left-0 h-full w-[25%] bg-gradient-to-r from-white/75 to-white/0"></div>
+          <div className="z-50 absolute invisible sm:visible right-0 h-full w-[25%] bg-gradient-to-l from-white/75 to-white/0"></div>
         </div>
       </Container>
     </section>
