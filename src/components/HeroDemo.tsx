@@ -19,6 +19,11 @@ const isPhoneValid = (phone: string) => {
   }
 };
 
+type verifySMSStatusType = {
+  status: "standby" | "pending" | "verified" | "failed" | "unauthenticated";
+  error?: string;
+};
+
 /**
  * Removes all non-numeric characters from a phone number, resulting in +2131112222
  * @param phone
@@ -33,7 +38,10 @@ export function HeroDemo() {
   const [name, setName] = useState("Dear customer");
   const callOptionRef = useRef<HTMLDivElement>(null);
   const [callOption, setCallOption] = useState<"general" | "demo">("general");
-  const [sendSMSError, setSendSMSError] = useState(false);
+  const [sendSMSError, setSendSMSError] = useState<boolean>(false);
+  const [verifySMSStatus, setVerifySMSStatus] = useState<verifySMSStatusType>({
+    status: "standby",
+  });
   const [mayRetry, setMayRetry] = useState(true);
 
   const [otp, setOtp] = useState("");
@@ -41,12 +49,21 @@ export function HeroDemo() {
   function closeModal() {
     setIsOTPOpen(false);
   }
+
+  const onCloseModal = () => {
+    // if the user clicks out to close the modal, prevent "sendSMS" for ~1 second
+    // this would prevent abusing the API
+    closeModal();
+    setTimeout(() => {
+      setVerifySMSStatus({ status: "standby" });
+    }, 1200);
+  };
   function openModal() {
     setOtp("");
     setIsOTPOpen(true);
   }
 
-  const handleError = () => {
+  const handleSendSMSError = () => {
     setSendSMSError(true);
     setMayRetry(false);
     setTimeout(() => {
@@ -55,7 +72,35 @@ export function HeroDemo() {
     }, 2200);
   };
 
+  const handleVerifySMSError = (unauthenticated: boolean) => {
+    // unauthenticated = true;
+    if (unauthenticated) {
+      setVerifySMSStatus({
+        status: "unauthenticated",
+        error: "Invalid verification code. Please try again.",
+      });
+      setOtp("");
+    } else {
+      setVerifySMSStatus({
+        status: "failed",
+        error: "There was an error verifying your code. Please try again.",
+      });
+      closeModal();
+      setMayRetry(false);
+      setTimeout(() => {
+        setMayRetry(true);
+      }, 1200);
+      setTimeout(() => {
+        setVerifySMSStatus({ status: "standby" });
+      }, 1000);
+    }
+  };
+
   const sendSMSVerification = useCallback(async () => {
+    if (verifySMSStatus.status === "pending") {
+      // Do not send another SMS if one is still pending
+      return;
+    }
     const formattedPhone = formatNumber(phone);
     try {
       const response = await fetch(
@@ -63,59 +108,44 @@ export function HeroDemo() {
       );
 
       if (!response.ok) {
-        handleError();
+        handleSendSMSError();
         return;
       }
       setSendSMSError(false);
       openModal();
+      setVerifySMSStatus({ status: "pending" });
     } catch (error) {
-      console.error("There was an error!", error);
-      handleError();
+      console.log("There was an error!", error);
+      handleSendSMSError();
     }
-  }, [phone]);
+  }, [phone, verifySMSStatus.status]);
 
-  
   const startDemo = useCallback(async () => {
+    const preambleText = `Hi ${name}, I am an automated AI agent calling from Convoice.`;
     const formattedPhone = formatNumber(phone);
     console.log(otp);
     try {
       const response = await fetch(
-        `${API_URL}/demo?code=${otp}&preamble=${name}&phone=${formattedPhone}`,
+        `${API_URL}/demo?code=${otp}&preamble=${preambleText}&phone=${formattedPhone}`,
       );
 
-      if (!response.ok) {
-        handleError();
+      console.log(response);
+
+      // 500 error or invalid code
+      if (response && !response.ok) {
+        const unauthenticated = response.status === 403;
+        handleVerifySMSError(unauthenticated);
         return;
       }
-      setSendSMSError(false);
       closeModal();
     } catch (error) {
-      console.error("There was an error!", error);
-      handleError();
+      console.log("There was an error!", error);
+      handleVerifySMSError(false);
     }
-  }, [phone]);
+  }, [handleVerifySMSError, name, otp, phone]);
 
-  // const verifySMS = useCallback(async () => {
-  //   const formattedPhone = formatNumber(phone);
-  //   const preambleStr = `Hi ${name}, this is Convoice calling!`;
-  //   try {
-  //     const response = await fetch(
-  //       `${API_URL}/demo/verify?phone=${formattedPhone}&code=${otp}&preamble=${preambleStr}`,
-  //     );
-  //
-  //     if (!response.ok) {
-  //       handleError();
-  //       return;
-  //     }
-  //     setSendSMSError(false);
-  //     closeModal();
-  //   } catch (error) {
-  //     console.error("There was an error!", error);
-  //     handleError();
-  //   }
-  // }, [phone, otp]);
-
-  const sendSMSDisabled = !phoneValid || !mayRetry;
+  const sendSMSDisabled =
+    !phoneValid || !mayRetry || verifySMSStatus.status === "pending";
 
   return (
     <section className="bg-gradient-to-b from-white to-slate-100/80" id="demo">
@@ -257,7 +287,11 @@ export function HeroDemo() {
 
               {/*SMS Modal*/}
               <Transition appear show={isOTPOpen} as={Fragment}>
-                <Dialog as="div" className="relative z-50" onClose={closeModal}>
+                <Dialog
+                  as="div"
+                  className="relative z-50"
+                  onClose={onCloseModal}
+                >
                   <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"
@@ -295,10 +329,26 @@ export function HeroDemo() {
                               }`}
                             </p>
                           </div>
+                          {verifySMSStatus.status === "unauthenticated" ? (
+                            <div className="mt-2">
+                              <p className="text-sm text-red-500">
+                                {verifySMSStatus.error}
+                              </p>
+                            </div>
+                          ) : null}
 
                           <OtpInput
                             value={otp}
-                            onChange={setOtp}
+                            onChange={(event) => {
+                              if (
+                                verifySMSStatus.status === "unauthenticated"
+                              ) {
+                                // reset status to make the error disappear
+                                setVerifySMSStatus({ status: "pending" });
+                              }
+                              // set otp
+                              setOtp(event);
+                            }}
                             numInputs={6}
                             containerStyle={
                               "text-black flex w-full gap-4 justify-center my-3"
@@ -331,6 +381,13 @@ export function HeroDemo() {
                 <div className="fixed inset-0 z-50 flex items-center justify-center">
                   <div className="flex items-center justify-center rounded-md border border-red-400 bg-red-100 p-1 text-red-700">
                     There was an error sending the verification code.
+                  </div>
+                </div>
+              ) : null}
+              {verifySMSStatus.status === "failed" ? (
+                <div className="fixed inset-0 z-50 flex items-center justify-center">
+                  <div className="flex items-center justify-center rounded-md border border-red-400 bg-red-100 p-1 text-red-700">
+                    {verifySMSStatus.error}
                   </div>
                 </div>
               ) : null}

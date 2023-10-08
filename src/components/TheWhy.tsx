@@ -96,7 +96,7 @@ export function TheWhy() {
                   for almost a month. I was lucky to recover well. The real
                   headache, however, started after I was discharged. I had to
                   deal with hospital bills, insurance claims, medical equipment
-                  rentals, and constantly calling hospitals to ask if they could
+                  rentals, and constantly calling places to ask if they could
                   accommodate me. In a single month, I ended up calling dozens
                   of times every day and spent probably 20+ hours just waiting
                   to speak with a human. I was frustrated and exhausted.
