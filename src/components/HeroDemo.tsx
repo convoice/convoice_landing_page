@@ -190,7 +190,7 @@ export function HeroDemo() {
                         );
                       }}
                     >
-                      Demo Scheduling
+                      Demo Booking
                     </button>
                     {/*Animation for 300ms*/}
                     <span

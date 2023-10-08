@@ -82,7 +82,7 @@ export function MajorFeatures() {
             </div>
           </div>
           <div className="flex w-full flex-col gap-6 lg:flex-row">
-            <div className="relative flex flex-col justify-between rounded-xl bg-slate-50 p-8 lg:basis-2/3">
+            <div className="relative flex flex-col justify-between rounded-xl bg-slate-50 pt-8 px-8 lg:basis-2/3">
               <div className="flex flex-col gap-2">
                 <p className="text-left font-sans text-xl font-semibold text-slate-900">
                   Analytics & Monitoring
@@ -101,7 +101,7 @@ export function MajorFeatures() {
                 quality={100}
               />
 
-              {/* <div className="to-slate-0 absolute bottom-0 left-0 right-0 h-40 rounded-b-xl bg-gradient-to-t from-slate-50 from-25%"></div> */}
+              <div className="to-slate-0 absolute bottom-0 left-0 right-0 h-28 rounded-b-xl bg-gradient-to-t from-slate-50 from-25%"></div>
             </div>
 
             <div className="relative flex flex-col justify-between rounded-xl bg-slate-50 px-8 pt-8 lg:basis-1/3">
