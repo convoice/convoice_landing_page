@@ -137,6 +137,10 @@ export function HeroDemo() {
         handleVerifySMSError(unauthenticated);
         return;
       }
+      setVerifySMSStatus({ status: "verified" });
+      setTimeout(() => {
+        setVerifySMSStatus({ status: "standby" });
+      }, 1000);
       closeModal();
     } catch (error) {
       console.log("There was an error!", error);
