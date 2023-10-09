@@ -106,7 +106,7 @@ export function HeroDemo() {
       const response = await fetch(
         `${API_URL}/demo/startVerify?phone=${formattedPhone}`,
       );
-
+      console.log(response);
       if (!response.ok) {
         handleSendSMSError();
         return;
