@@ -135,6 +135,9 @@ export function HeroDemo() {
       if (response && !response.ok) {
         const unauthenticated = response.status === 403;
         handleVerifySMSError(unauthenticated);
+
+        const errorData = await response.json();
+        console.log("response error: ", errorData);
         return;
       }
       setVerifySMSStatus({ status: "verified" });
