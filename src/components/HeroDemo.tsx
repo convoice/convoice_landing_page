@@ -106,7 +106,7 @@ export function HeroDemo() {
       const response = await fetch(
         `${API_URL}/demo/startVerify?phone=${formattedPhone}`,
       );
-      console.log(response);
+      // console.log(await response.text());
       if (!response.ok) {
         handleSendSMSError();
         return;
@@ -115,7 +115,7 @@ export function HeroDemo() {
       openModal();
       setVerifySMSStatus({ status: "pending" });
     } catch (error) {
-      console.log("There was an error!", error);
+      // console.log("There was an error!", error);
       handleSendSMSError();
     }
   }, [phone, verifySMSStatus.status]);
@@ -129,15 +129,12 @@ export function HeroDemo() {
         `${API_URL}/demo/?code=${otp}&preamble=${preambleText}&phone=${formattedPhone}`,
       );
 
-      console.log(response);
+      // console.log(await response.text());
 
       // 500 error or invalid code
       if (response && !response.ok) {
         const unauthenticated = response.status === 403;
         handleVerifySMSError(unauthenticated);
-
-        const errorData = await response.json();
-        console.log("response error: ", errorData);
         return;
       }
       setVerifySMSStatus({ status: "verified" });
