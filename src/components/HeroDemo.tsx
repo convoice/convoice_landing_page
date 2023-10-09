@@ -126,7 +126,7 @@ export function HeroDemo() {
     console.log(otp);
     try {
       const response = await fetch(
-        `${API_URL}/demo?code=${otp}&preamble=${preambleText}&phone=${formattedPhone}`,
+        `${API_URL}/demo/?code=${otp}&preamble=${preambleText}&phone=${formattedPhone}`,
       );
 
       console.log(response);
