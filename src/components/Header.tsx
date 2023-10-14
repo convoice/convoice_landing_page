@@ -10,6 +10,7 @@ import { Container } from "@/components/Container";
 import { Logo } from "@/components/Logo";
 import { NavLink } from "@/components/NavLink";
 
+const WAITLIST_URL = process.env.NEXT_PUBLIC_WAITLIST_URL;
 function MobileNavLink({
   href,
   children,
@@ -132,7 +133,7 @@ export function Header({
               <NavLink href="https://blog.convoice.ai/">Blog</NavLink>
             </div>
             <CustomButton
-              href="https://airtable.com/appUsQg5CdJxsjRyX/shrbG6xQ7P9JNbOti"
+              href={WAITLIST_URL}
               color="main"
               className="hidden md:inline"
             >

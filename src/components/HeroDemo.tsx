@@ -10,6 +10,7 @@ import "react-international-phone/style.css";
 import { PhoneNumberUtil } from "google-libphonenumber";
 
 const phoneUtil = PhoneNumberUtil.getInstance();
+const WAITLIST_URL = process.env.NEXT_PUBLIC_WAITLIST_URL;
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const isPhoneValid = (phone: string) => {
   try {
@@ -172,7 +173,7 @@ export function HeroDemo() {
             </div>
             <div className="mt-10 flex justify-center gap-x-6">
               <CustomButton
-                href="https://airtable.com/appUsQg5CdJxsjRyX/shrbG6xQ7P9JNbOti"
+                href={WAITLIST_URL}
                 color="main"
                 className="px-6 py-3 text-xl font-semibold"
               >

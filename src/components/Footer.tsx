@@ -5,6 +5,8 @@ import { Logo } from "@/components/Logo";
 import { NavLink } from "@/components/NavLink";
 import { CustomButton } from "@/components/CustomButton";
 
+const WAITLIST_URL = process.env.NEXT_PUBLIC_WAITLIST_URL;
+
 export function Footer() {
   return (
     <footer className="rounded-t-[32px] bg-main-500 sm:rounded-t-[48px]">
@@ -16,11 +18,7 @@ export function Footer() {
               No code, no diagram, no problem.
             </p>
             <div className="mt-6 mt-8 flex gap-6">
-              <CustomButton
-                href="https://airtable.com/appUsQg5CdJxsjRyX/shrbG6xQ7P9JNbOti"
-                color="white"
-                className=""
-              >
+              <CustomButton href={WAITLIST_URL} color="white" className="">
                 <span className="text-main-500 sm:text-lg">Join Waitlist</span>
               </CustomButton>
               {/*<Button*/}
