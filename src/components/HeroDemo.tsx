@@ -1,3 +1,5 @@
+"use client";
+
 import { Dialog, Transition } from "@headlessui/react";
 import { CustomButton } from "@/components/CustomButton";
 import { Container } from "@/components/Container";
