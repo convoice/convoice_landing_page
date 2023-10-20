@@ -10,11 +10,12 @@ import { Integrations } from "@/components/Integrations";
 import { TheWhy } from "@/components/TheWhy";
 import SmoothScrolling from "@/components/SmoothScrolling";
 
+export const dynamic = "force-dynamic";
 export default function Home() {
   return (
     <>
       <main>
-        {/*<SmoothScrolling />*/}
+        <SmoothScrolling />
         <HeroDemo />
         <PrimaryFeatures />
         {/* <StepFeatures /> */}
