@@ -263,7 +263,7 @@ export function HeroDemo() {
                   }}
                 />
                 {phone.length >= 17 && !phoneValid ? (
-                  <div className="mt-1 flex items-center justify-center rounded-md border border-red-400 bg-red-100 p-1 text-red-700">
+                  <div className="t14 text-red-600">
                     Please enter a valid US number
                   </div>
                 ) : null}
