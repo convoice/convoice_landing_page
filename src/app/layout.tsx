@@ -1,80 +1,76 @@
-import { Inter } from 'next/font/google'
-import LocalFont from 'next/font/local'
-import clsx from 'clsx'
+import { Inter } from "next/font/google";
+import LocalFont from "next/font/local";
+import clsx from "clsx";
 
-import '@/styles/tailwind.css'
-import { type Metadata } from 'next'
-import { Header } from '@/components/Header'
-import Script from 'next/script'
-import HiddenHeader from '@/components/HiddenHeader'
+import "@/styles/tailwind.css";
+import { type Metadata } from "next";
+import { Header } from "@/components/Header";
+import Script from "next/script";
+import HiddenHeader from "@/components/HiddenHeader";
 
 export const metadata: Metadata = {
-  title: {
-    template: '%s - Convoice',
-    default:
-      'Convoice - Automated calling agent made simple for your business',
-  },
+  title: "Convoice | Automated Calling for Businesses",
   description:
-    'Convoice helps small businesses automate their calling workflows, saving them time and money, while improving customer satisfaction.',
-}
+    "Convoice helps businesses automate their calling workflows, saving them time and money, while improving customer satisfaction.",
+};
 
 const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-})
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 const generalSans = LocalFont({
   src: [
     {
-      path: '../fonts/GeneralSans-Extralight.otf',
-      weight: '200',
-      style: 'extralight',
+      path: "../fonts/GeneralSans-Extralight.otf",
+      weight: "200",
+      style: "extralight",
     },
     {
-      path: '../fonts/GeneralSans-Light.otf',
-      weight: '300',
-      style: 'light',
+      path: "../fonts/GeneralSans-Light.otf",
+      weight: "300",
+      style: "light",
     },
     {
-      path: '../fonts/GeneralSans-Regular.otf',
-      weight: '400',
-      style: 'regular',
+      path: "../fonts/GeneralSans-Regular.otf",
+      weight: "400",
+      style: "regular",
     },
     {
-      path: '../fonts/GeneralSans-Medium.otf',
-      weight: '500',
-      style: 'medium',
+      path: "../fonts/GeneralSans-Medium.otf",
+      weight: "500",
+      style: "medium",
     },
     {
-      path: '../fonts/GeneralSans-Semibold.otf',
-      weight: '600',
-      style: 'semibold',
+      path: "../fonts/GeneralSans-Semibold.otf",
+      weight: "600",
+      style: "semibold",
     },
     {
-      path: '../fonts/GeneralSans-Bold.otf',
-      weight: '700',
-      style: 'bold',
+      path: "../fonts/GeneralSans-Bold.otf",
+      weight: "700",
+      style: "bold",
     },
   ],
-  variable: '--font-general-sans',
-})
+  variable: "--font-general-sans",
+});
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html
       lang="en"
       className={clsx(
-        'h-full scroll-smooth bg-white antialiased',
+        "h-full scroll-smooth bg-white antialiased",
         inter.variable,
         generalSans.variable,
       )}
     >
-      <Script id={'hotjar'}>
+      <Script id={"hotjar"}>
         {`(function(h,o,t,j,a,r){
           h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
           h._hjSettings={hjid:3672977,hjsv:6};
@@ -90,5 +86,5 @@ export default function RootLayout({
         {children}
       </body>
     </html>
-  )
+  );
 }
