@@ -4,7 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { CustomButton } from "@/components/CustomButton";
 import { Container } from "@/components/Container";
 import { PhoneIcon } from "@heroicons/react/24/outline";
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import { ArrowRightIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import { Fragment, useCallback, useRef, useState } from "react";
 import { PhoneInput } from "react-international-phone";
 import OtpInput from "react-otp-input";
@@ -159,7 +159,12 @@ export function HeroDemo() {
       <Container className="pb-20 pt-12 text-center lg:pt-20">
         <div className="flex flex-col items-center gap-16 lg:flex-row">
           <div className="flex max-w-2xl flex-col items-center text-center lg:basis-1/2 lg:items-start lg:text-left">
-            <h1 className="w-full font-display text-4xl font-semibold text-slate-900 sm:text-6xl">
+            <button className="shadow-lg shadow-main-200/25 flex items-center rounded-full bg-main-50 px-1 py-1 font-display font-medium text-main transition group hover:scale-[102%] hover:shadow-main-200/50">
+              <div className="bg-main rounded-full px-2 py-[1px] d14 text-white">New</div>
+              <p className='ml-2'>Announcing our Private Beta. Join for Free!</p>
+              <ChevronRightIcon className="ml-1 mr-1 h-3 w-3 stroke-main" />
+            </button>
+            <h1 className="mt-4 w-full font-display text-4xl font-semibold text-slate-900 sm:text-6xl">
               AI voice agents{" "}
               <span className="relative whitespace-nowrap text-main-500">
                 <span className="relative">made simple</span>
@@ -240,7 +245,7 @@ export function HeroDemo() {
               </div>
 
               {/*PHONE NUMBER INPUT SECTION*/}
-              <div className="flex w-full flex-col gap-2">
+              <div className="flex w-full flex-col items-start gap-2">
                 <div className="font-sans text-slate-500">
                   2. Enter your number (confirmation required)
                 </div>
@@ -258,7 +263,7 @@ export function HeroDemo() {
                   }}
                 />
                 {phone.length >= 17 && !phoneValid ? (
-                  <div className="mt-1 flex items-center justify-center rounded-md border border-red-400 bg-red-100 p-1 text-red-700">
+                  <div className="t14 text-red-600">
                     Please enter a valid US number
                   </div>
                 ) : null}
