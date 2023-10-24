@@ -28,7 +28,7 @@ type verifySMSStatusType = {
 };
 
 /**
- * Removes all non-numeric characters from a phone number, resulting in +2131112222
+ * Removes all non-numeric characters from a phone number, resulting in +12131112222
  * @param phone
  */
 const formatNumber = (phone: string) => {
