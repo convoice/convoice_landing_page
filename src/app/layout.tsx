@@ -82,7 +82,7 @@ export default function RootLayout({
       </Script>
       <body className="relative flex h-full flex-col">
         <Header />
-        <HiddenHeader />
+        {/*<HiddenHeader />*/}
         {children}
       </body>
     </html>

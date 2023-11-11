@@ -98,7 +98,7 @@ function MobileNavigation() {
 }
 
 export function Header({
-  fixed = false,
+  fixed = true,
   hidden = false,
   offset = 0,
 }: {
@@ -125,9 +125,9 @@ export function Header({
               <NavLink href="/login">Sign in</NavLink>
             </div> */}
             <div className="hidden md:flex md:gap-x-4">
-              <NavLink href={"/?scrollTo=demo"}>Demo</NavLink>
-              <NavLink href="/?scrollTo=features">Features</NavLink>
-              <NavLink href={"/?scrollTo=faq"}>FAQ</NavLink>
+              <NavLink href={"/#demo"}>Demo</NavLink>
+              <NavLink href="/#features">Features</NavLink>
+              <NavLink href={"/#faq"}>FAQ</NavLink>
               {/*<NavLink href="#testimonials">Testimonials</NavLink>*/}
               {/*<NavLink href="#pricing">Pricing</NavLink>*/}
               <NavLink href="https://blog.convoice.ai/">Blog</NavLink>
