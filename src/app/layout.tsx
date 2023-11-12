@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Anaheim, Inter } from "next/font/google";
 import LocalFont from "next/font/local";
 import clsx from "clsx";
 
@@ -6,7 +6,8 @@ import "@/styles/tailwind.css";
 import { type Metadata } from "next";
 import { Header } from "@/components/Header";
 import Script from "next/script";
-import HiddenHeader from "@/components/HiddenHeader";
+
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Convoice | Automated Calling for Businesses",
@@ -84,6 +85,7 @@ export default function RootLayout({
         <Header />
         {/*<HiddenHeader />*/}
         {children}
+        <Analytics />
       </body>
     </html>
   );
