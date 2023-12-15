@@ -21,6 +21,22 @@ export default {
       '9xl': ['8rem', { lineHeight: '1' }],
     },
     extend: {
+      animation: {
+        floating: 'floating 3s ease-in-out infinite',
+        blinking: 'blink 0.7s ease-in-out infinite',
+      },
+      keyframes: {
+        floating: {
+          '0%': { transform: 'translate(0,  0px)' },
+          '50%':  { transform: 'translate(0, 7px)' },
+          '100%':   { transform: 'translate(0, -0px)' },
+        },
+        blink: {
+          '0%': { opcaity : '1' },
+          '50%': { opcaity : '0' },
+          '100%': { opcaity : '1' },
+        },
+      },
       borderRadius: {
         '4xl': '2rem',
       },

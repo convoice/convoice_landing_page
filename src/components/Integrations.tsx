@@ -196,7 +196,7 @@ export function Integrations() {
     <section
       id="integrations"
       aria-label="Convoice Supported Integrations"
-      className="py-16 sm:py-20 md:py-24"
+      className="pb-16 sm:pb-20 md:pb-24"
     >
       <Container className="relative w-full">
         <div className="mx-auto max-w-2xl overflow-auto md:text-center">
