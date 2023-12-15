@@ -11,7 +11,7 @@ import OtpInput from "react-otp-input";
 import "react-international-phone/style.css";
 import { PhoneNumberUtil } from "google-libphonenumber";
 
-const words = ["cafe", "salon", "restaurant", "store", "startup", "business..."];
+const words = ["cafe", "salon", "restaurant", "store", "startup", "business"];
 
 const phoneUtil = PhoneNumberUtil.getInstance();
 const WAITLIST_URL = process.env.NEXT_PUBLIC_WAITLIST_URL;
