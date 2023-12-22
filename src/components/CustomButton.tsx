@@ -5,7 +5,7 @@ const baseStyles = {
   solid:
     "group transition duration-200 inline-flex items-center justify-center rounded-lg py-1.5 px-4 font-medium focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[97%]",
   outline:
-    "group transition duration-200 inline-flex ring-1 items-center justify-center rounded-lg py-1.5 px-4 font-medium focus:outline-none active:scale-[97%]",
+    "group transition duration-200 inline-flex border-1 items-center justify-center rounded-lg py-1.5 px-4 font-medium focus:outline-none active:scale-[97%]",
 };
 
 const variantStyles = {
@@ -19,10 +19,10 @@ const variantStyles = {
   },
   outline: {
     slate:
-      "ring-slate-200 text-slate-700 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-main-600 focus-visible:ring-slate-300",
-    main: "ring-main-500 text-main-500 ring-[2px] hover:bg-main-50 active:bg-main-100 active:text-main-800 focus-visible:outline-main-600",
+      "border-slate-200 text-slate-700 hover:text-slate-900 hover:border-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-main-600 focus-visible:border-slate-300",
+    main: "border-main-500 text-main-500 border-[2px] hover:bg-main-50 active:bg-main-50 active:text-main-500 focus-visible:outline-main-600",
     white:
-      "ring-slate-700 text-white hover:ring-slate-500 active:ring-slate-700 active:text-slate-400 focus-visible:outline-white",
+      "border-slate-700 text-white hover:border-slate-500 active:border-slate-700 active:text-slate-400 focus-visible:outline-white",
   },
 };
 

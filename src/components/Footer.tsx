@@ -1,9 +1,12 @@
+"use client";
+
 import Link from "next/link";
 
 import { Container } from "@/components/Container";
 import { Logo } from "@/components/Logo";
 import { NavLink } from "@/components/NavLink";
 import { CustomButton } from "@/components/CustomButton";
+import CalendlyButtonDynamic from "./CalendlyButtonDynamic";
 
 const WAITLIST_URL = process.env.NEXT_PUBLIC_WAITLIST_URL;
 
@@ -28,6 +31,8 @@ export function Footer() {
               {/*>*/}
               {/*  <span className="sm:text-lg">Join waitlist</span>*/}
               {/*</Button>*/}
+              
+              <CalendlyButtonDynamic variant="white"/>
             </div>
           </div>
         </div>

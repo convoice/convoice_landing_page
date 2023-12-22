@@ -10,6 +10,7 @@ import { PhoneInput } from "react-international-phone";
 import OtpInput from "react-otp-input";
 import "react-international-phone/style.css";
 import { PhoneNumberUtil } from "google-libphonenumber";
+import CalendlyButtonDynamic  from "@/components/CalendlyButtonDynamic";
 
 const words = ["cafe", "salon", "restaurant", "store", "startup", "business"];
 
@@ -156,7 +157,6 @@ export function HeroDemo() {
   const sendSMSDisabled =
     !phoneValid || !mayRetry || verifySMSStatus.status === "pending";
 
-  
   const [wordIndex, setWordIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -170,10 +170,10 @@ export function HeroDemo() {
       const currentChar = currentWord.substring(0, charIndex);
       setDynamicText(currentChar);
 
-      if(!isDeleting && charIndex < currentWord.length ) {
+      if (!isDeleting && charIndex < currentWord.length) {
         setCharIndex(charIndex + 1);
         setTimeoutValue(150);
-      } else if(isDeleting && charIndex > 0) {
+      } else if (isDeleting && charIndex > 0) {
         setCharIndex(charIndex - 1);
         setTimeoutValue(70);
       } else {
@@ -189,12 +189,12 @@ export function HeroDemo() {
     <section className="bg-gradient-to-b from-white to-slate-100/80" id="demo">
       <Container className="pb-20 pt-12 text-center lg:pt-20">
         <div className="flex flex-col items-center gap-16 lg:flex-row">
-          <div className="flex max-w-2xl flex-col items-center text-center pt-20 lg:py-12 lg:basis-1/2 lg:items-start lg:text-left">
+          <div className="flex max-w-2xl flex-col items-center pt-20 text-center lg:basis-1/2 lg:items-start lg:py-12 lg:text-left">
             <button className="group flex animate-floating items-center rounded-full bg-main-50 px-1 py-1 font-display font-medium text-main shadow-lg shadow-main-200/50 transition">
               <div className="d14 rounded-full bg-main px-2 py-[1px] text-white">
                 New
               </div>
-              <p className="ml-2 whitespace-nowrap text-ellipsis">
+              <p className="ml-2 text-ellipsis whitespace-nowrap">
                 Announcing our Private Beta. Join for Free!
               </p>
               <ChevronRightIcon className="ml-1 mr-1 h-3 w-3 stroke-main" />
@@ -202,7 +202,9 @@ export function HeroDemo() {
             <h1 className="mt-4 w-full font-display text-4xl font-semibold leading-10 text-slate-900 sm:text-6xl">
               AI voice agents made simple for your
               <span className="relative">
-                <span className="pl-2 text-main-500 after:ml-1 after:absolute after:top-[17%] after:h-[75%] after:w-[4px] after:content-[''] after:bg-main-500 after:animate-[pulse_1s_ease-in-out_infinite]">{dynamicText}</span>
+                <span className="pl-2 text-main-500 after:absolute after:top-[17%] after:ml-1 after:h-[75%] after:w-[4px] after:animate-[pulse_1s_ease-in-out_infinite] after:bg-main-500 after:content-['']">
+                  {dynamicText}
+                </span>
               </span>
             </h1>
             <div className="mx-auto mt-6 max-w-3xl text-xl text-slate-700">
@@ -216,13 +218,29 @@ export function HeroDemo() {
               <CustomButton
                 href={WAITLIST_URL}
                 color="main"
-                className="px-6 py-3 text-xl font-semibold"
+                className="px-6 py-2.5 text-xl font-semibold"
               >
                 Join Waitlist
               </CustomButton>
+              {/* <CustomButton
+                href={WAITLIST_URL}
+                variant="outline"
+                color="main"
+                className="px-6 py-2.5 text-xl font-semibold"
+              >
+                Book a Demo
+              </CustomButton> */}
+              {/* <PopupButton
+                className="rounded-lg border-[2px] border-main-500 px-6 py-2.5 text-xl font-semibold text-main-500 text-main-500 transition hover:bg-main-50 focus-visible:outline-main-600 active:bg-main-50 active:text-main-500"
+                url="https://calendly.com/adham-tarek"
+                rootElement={document.getElementById("demo")}
+                text="Book a Demo"
+              /> */}
+              <CalendlyButtonDynamic />
+              <div id="__next"></div>
             </div>
           </div>
-          <div className="flex flex-col items-center py-12 lg:py-20 lg:basis-1/2">
+          <div className="flex flex-col items-center py-12 lg:basis-1/2 lg:py-20">
             <div className="flex items-center gap-1 rounded-full border-[1.5px] border-main bg-main-50 px-2.5 py-0.5 font-display font-medium text-main">
               <PhoneIcon className="h-[18px] w-[18px] stroke-[2px] outline-main" />
               <p>Call Convoice Now</p>
