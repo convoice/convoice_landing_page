@@ -62,7 +62,7 @@ const features: Array<Feature> = [
   {
     name: "Appointment booking",
     summary:
-      "Let your customers book seamlessly book appointments with your voice agent.",
+      "Let your customers seamlessly book appointments with your voice agent.",
     description:
       "We talked about reporting in the section above but we needed three items here, so mentioning it one more time for posterity.",
     icon: function ReportingIcon() {
