@@ -7,30 +7,40 @@ import { ArrowUpRightIcon } from "@heroicons/react/20/solid";
 import howWeStartedConvoice from "@/images/blogs/how-we-started-convoice.png";
 import convoiceServerlessLLMToVoice from "@/images/blogs/llm-to-voice-service.png";
 import convoiceMeetTheTeamBriefly from "@/images/blogs/meet-our-team.png";
+import buildAVoicebot from "@/images/blogs/build-a-voicebot.png";
 
 const WAITLIST_URL = process.env.NEXT_PUBLIC_WAITLIST_URL;
 
 const blogs = [
   [
     {
+      title: "How I Build A Customer Service Voicebot in 5 Minutes",
+      category: "Product Demo",
+      date: "Jan 13, 2024",
+      link: "https://www.convoice.ai/#blog",
+      image: buildAVoicebot,
+    },
+    {
       title: "How We Started Convoice",
       category: "Company Info",
-      date: "Jan 13, 2023",
+      date: "Jan 13, 2024",
       link: "https://blog.convoice.ai/how-we-started-convoice-3395875dcacf",
       image: howWeStartedConvoice,
     },
+  ],
+  [
     {
       title:
         "Fully Serverless, Low Latency, LLM-to-Voice Service",
       category: "Engineering",
-      date: "Jan 10, 2023",
+      date: "Jan 10, 2024",
       link: "https://blog.convoice.ai/convoice-serverless-llm-to-voice-c11b05a3af32",
       image: convoiceServerlessLLMToVoice,
     },
     {
       title: "Meet the Team (Briefly)",
       category: "Company Info",
-      date: "Jan 8, 2023",
+      date: "Jan 8, 2024",
       link: "https://blog.convoice.ai/convoice-meet-the-team-briefly-61b03d291d76",
       image: convoiceMeetTheTeamBriefly,
     },
@@ -51,14 +61,14 @@ export function Blogs() {
           </p>
           <h2
             id="blog-title"
-            className="mt-2 font-sans text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl"
+            className="font-sans text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl"
           >
-            Our most recent articles
+            Check out our most recent articles
           </h2>
         </div>
         <ul
           role="list"
-          className="mx-auto mt-16 grid max-w-2xl grid-rows-1 gap-8 lg:max-w-none"
+          className="mx-auto mt-12 grid max-w-2xl grid-rows-1 gap-8 lg:gap-12 lg:max-w-none lg:grid-rows-2"
         >
           {blogs.map((row, rowIndex) => (
             <li key={rowIndex}>
@@ -69,7 +79,7 @@ export function Blogs() {
                 {row.map((blog, blogIndex) => (
                   <li
                     key={blogIndex}
-                    className="group cursor-pointer transition hover:scale-[103%] lg:basis-1/3"
+                    className="group cursor-pointer transition hover:scale-[103%] lg:basis-1/2"
                   >
                     <button
                       className="flex flex-col gap-4 w-full"
@@ -85,7 +95,7 @@ export function Blogs() {
                         className="rounded-2xl"
                       ></Image>
                       <div className="flex items-center mt-2 gap-2 text-gray-500">
-                        <div className="text-normal rounded-full bg-gray-100 px-3 py-1 font-semibold leading-6">
+                        <div className="text-normal rounded-full bg-gray-100 px-2.5 py-0.5 font-semibold leading-6">
                           {blog.category}
                         </div>
                         &#8212;&#8212;
