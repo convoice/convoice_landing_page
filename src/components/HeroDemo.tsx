@@ -200,9 +200,9 @@ export function HeroDemo() {
               <ChevronRightIcon className="ml-1 mr-1 h-3 w-3 stroke-main" />
             </button>
             <h1 className="mt-4 w-full font-display text-4xl font-semibold leading-10 text-slate-900 sm:text-6xl">
-              AI voice agents made simple for your
+              AI voice agents made simple for your{" "}
               <span className="relative">
-                <span className="pl-2 text-main-500 after:absolute after:top-[17%] after:ml-1 after:h-[75%] after:w-[4px] after:animate-[pulse_1s_ease-in-out_infinite] after:bg-main-500 after:content-['']">
+                <span className="pl-0 text-main-500 after:absolute after:top-[17%] after:ml-[4px] after:h-[75%] after:w-[4px] after:animate-[pulse_1s_ease-in-out_infinite] after:bg-main-500 after:content-['']">
                   {dynamicText}
                 </span>
               </span>

@@ -22,7 +22,7 @@ export function TheWhy() {
             WHY YOU SHOULD USE CONVOICE?
           </p>
           <h2 className="mt-2 max-w-2xl font-display text-3xl font-semibold text-slate-900 sm:text-4xl md:mx-auto">
-            Unlock Business Potential with AI-Powered Customer Service
+            Unlock business potential with AI-powered customer service
           </h2>
 
           <div className="mt-16 flex flex-col gap-8">

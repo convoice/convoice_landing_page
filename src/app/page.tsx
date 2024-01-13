@@ -9,6 +9,9 @@ import { MajorFeatures } from "@/components/MajorFeatures";
 import { Integrations } from "@/components/Integrations";
 import { TheWhy } from "@/components/TheWhy";
 import SmoothScrolling from "@/components/SmoothScrolling";
+import { Testimonials } from "@/components/Testimonials";
+import { Examples } from "@/components/Examples";
+import { Blogs } from "@/components/Blogs";
 
 // export const dynamic = "force-dynamic";
 export default function Home({
@@ -29,8 +32,9 @@ export default function Home({
         <TheWhy />
         {/* <Testimonials /> */}
         {/* <Pricing /> */}
-        {/*<Examples />*/}
-        <Faqs />
+        {/* <Examples /> */}
+        {/* <Faqs /> */}
+        <Blogs />
         {/* <CallToAction /> */}
       </main>
       <Footer />

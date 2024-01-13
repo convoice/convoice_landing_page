@@ -50,7 +50,7 @@ const features: Array<Feature> = [
     },
   },
   {
-    name: "Connect to knowledge bases",
+    name: "Connect to knowledge base",
     summary:
       "Feed your bots knowledge from your sources to give them more context and make them smarter.",
     description:
@@ -60,9 +60,9 @@ const features: Array<Feature> = [
     },
   },
   {
-    name: "Appointment booking",
+    name: "Appointment scheduling",
     summary:
-      "Let your customers seamlessly book appointments with your voice agent.",
+      "Let your customers seamlessly book appointments and meetings with your voice agent.",
     description:
       "We talked about reporting in the section above but we needed three items here, so mentioning it one more time for posterity.",
     icon: function ReportingIcon() {
@@ -82,7 +82,7 @@ const features: Array<Feature> = [
     },
   },
   {
-    name: "Call Analytics",
+    name: "Call history & analytics",
     summary:
       "Monitor your bot’s performance and get insights into how your customers are interacting with it.",
     description:

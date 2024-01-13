@@ -52,10 +52,10 @@ export function Footer() {
               <NavLink href="/#features" color="white">
                 Features
               </NavLink>
-              <NavLink href="/#faq" color="white">
+              {/* <NavLink href="/#faq" color="white">
                 FAQ
-              </NavLink>
-              <NavLink href="/blog" color="white">
+              </NavLink> */}
+              <NavLink href="/#blog" color="white">
                 Blog
               </NavLink>
             </div>
@@ -89,7 +89,7 @@ export function Footer() {
               </svg>
             </Link> */}
             <Link
-              href="https://www.linkedin.com"
+              href="https://www.linkedin.com/company/convoice/"
               className="group"
               aria-label="Convoice on LinkedIn"
             >
