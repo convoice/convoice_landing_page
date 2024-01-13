@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Tab } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 
 import { Container } from "@/components/Container";
@@ -10,6 +10,8 @@ import logoReduceCost from "@/images/logos/reduce-cost.svg";
 import logoIncreaseEfficiency from "@/images/logos/increase-efficiency.svg";
 
 export function TheWhy() {
+  const [expandText, setExpandText] = useState(false);
+
   return (
     <section
       id="the-why"
@@ -101,32 +103,46 @@ export function TheWhy() {
                   of times every day and spent probably 20+ hours just waiting
                   to speak with a human. I was frustrated and exhausted.
                 </p>
-                <p className="mt-6 text-left font-sans text-lg text-slate-600">
-                  A few months later, ChatGPT was released, reshaping the AI
-                  landscape almost overnight. I saw the opportunity to build a
-                  product that could help customers like me. People have been
-                  trying to make all kinds of automated agents to call on
-                  users&apos behalf, such as ordering pizzas. However, I wanted
-                  to take it a step further by directly optimizing the business
-                  side of customer interactions. With Convoice, we can help
-                  businesses improve efficiency and reduce cost, while providing
-                  a better customer experience, ultimately benefiting everyone.
-                </p>
-                <p className="mt-6 text-left font-sans text-lg text-slate-600">
-                  If you are interested in seeing how the latest AI will
-                  transform your customer service and help your customers
-                  receive support quickly and effortlessly, please give us a
-                  try.
-                </p>
-                <p className="mt-6 text-left font-sans text-lg text-slate-600">
-                  Thanks,
-                </p>
-                <p className="mt-8 text-left font-sans text-lg font-medium text-slate-600">
-                  Yuxing Zhou
-                </p>
-                <p className="text-left font-sans text-lg font-medium text-slate-600">
-                  Co-founder of Convoice
-                </p>
+                {expandText && (
+                  <>
+                    <p className="mt-6 text-left font-sans text-lg text-slate-600">
+                      A few months later, ChatGPT was released, reshaping the AI
+                      landscape almost overnight. I saw the opportunity to build
+                      a product that could help customers like me. People have
+                      been trying to make all kinds of automated agents to call
+                      on users&apos; behalf, such as ordering pizzas. However, I
+                      wanted to take it a step further by directly optimizing
+                      the business side of customer interactions. With Convoice,
+                      we can help businesses improve efficiency and reduce cost,
+                      while providing a better customer experience, ultimately
+                      benefiting everyone.
+                    </p>
+                    <p className="mt-6 text-left font-sans text-lg text-slate-600">
+                      If you are interested in seeing how the latest AI will
+                      transform your customer service and help your customers
+                      receive support quickly and effortlessly, please give us a
+                      try.
+                    </p>
+                    <p className="mt-6 text-left font-sans text-lg text-slate-600">
+                      Thanks,
+                    </p>
+                    <p className="mt-8 text-left font-sans text-lg font-medium text-slate-600">
+                      Yuxing Zhou
+                    </p>
+                    <p className="text-left font-sans text-lg font-medium text-slate-600">
+                      Co-founder of Convoice
+                    </p>
+                  </>
+                )}
+                {!expandText && (
+                  <span
+                    className="leading-7 items-center mt-4 flex gap-1 font-sans text-lg text-main-500 hover:cursor-pointer"
+                    onClick={() => setExpandText(!expandText)}
+                  >
+                    Show {`${expandText ? "Less" : "More"}`}
+                    <ChevronDownIcon className="h-4 w-4 stroke-main-500 stroke-[2px]" />
+                  </span>
+                )}
               </div>
             </div>
 
