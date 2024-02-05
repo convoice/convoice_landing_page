@@ -82,69 +82,69 @@ export function TheWhy() {
               </div>
             </div>
 
-            <div className="h-fit w-full overflow-hidden rounded-3xl bg-white p-8 sm:p-12 md:p-20">
-              <div className="flex flex-col items-start">
-                <p className="font-display text-sm font-semibold text-main-500 sm:text-base">
-                  TRUE STORY FROM OUR CO-FOUNDER
-                </p>
-                <p className="mt-2 text-left font-display text-3xl font-semibold text-slate-900">
-                  Say goodbye to the old way of doing things.
-                </p>
-                <p className="mt-8 text-left font-sans text-lg text-slate-600">
-                  Hi there,
-                </p>
-                <p className="mt-6 text-left font-sans text-lg text-slate-600">
-                  About a year ago, I had a major surgery and was hospitalized
-                  for almost a month. I was lucky to recover well. The real
-                  headache, however, started after I was discharged. I had to
-                  deal with hospital bills, insurance claims, medical equipment
-                  rentals, and constantly calling places to ask if they could
-                  accommodate me. In a single month, I ended up calling dozens
-                  of times every day and spent probably 20+ hours just waiting
-                  to speak with a human. I was frustrated and exhausted.
-                </p>
-                {expandText && (
-                  <>
-                    <p className="mt-6 text-left font-sans text-lg text-slate-600">
-                      A few months later, ChatGPT was released, reshaping the AI
-                      landscape almost overnight. I saw the opportunity to build
-                      a product that could help customers like me. People have
-                      been trying to make all kinds of automated agents to call
-                      on users&apos; behalf, such as ordering pizzas. However, I
-                      wanted to take it a step further by directly optimizing
-                      the business side of customer interactions. With Convoice,
-                      we can help businesses improve efficiency and reduce cost,
-                      while providing a better customer experience, ultimately
-                      benefiting everyone.
-                    </p>
-                    <p className="mt-6 text-left font-sans text-lg text-slate-600">
-                      If you are interested in seeing how the latest AI will
-                      transform your customer service and help your customers
-                      receive support quickly and effortlessly, please give us a
-                      try.
-                    </p>
-                    <p className="mt-6 text-left font-sans text-lg text-slate-600">
-                      Thanks,
-                    </p>
-                    <p className="mt-8 text-left font-sans text-lg font-medium text-slate-600">
-                      Yuxing Zhou
-                    </p>
-                    <p className="text-left font-sans text-lg font-medium text-slate-600">
-                      Co-founder of Convoice
-                    </p>
-                  </>
-                )}
-                {!expandText && (
-                  <span
-                    className="leading-7 items-center mt-4 flex gap-1 font-sans text-lg text-main-500 hover:cursor-pointer"
-                    onClick={() => setExpandText(!expandText)}
-                  >
-                    Show {`${expandText ? "Less" : "More"}`}
-                    <ChevronDownIcon className="h-4 w-4 stroke-main-500 stroke-[2px]" />
-                  </span>
-                )}
-              </div>
-            </div>
+            {/*<div className="h-fit w-full overflow-hidden rounded-3xl bg-white p-8 sm:p-12 md:p-20">*/}
+            {/*  <div className="flex flex-col items-start">*/}
+            {/*    <p className="font-display text-sm font-semibold text-main-500 sm:text-base">*/}
+            {/*      TRUE STORY FROM OUR CO-FOUNDER*/}
+            {/*    </p>*/}
+            {/*    <p className="mt-2 text-left font-display text-3xl font-semibold text-slate-900">*/}
+            {/*      Say goodbye to the old way of doing things.*/}
+            {/*    </p>*/}
+            {/*    <p className="mt-8 text-left font-sans text-lg text-slate-600">*/}
+            {/*      Hi there,*/}
+            {/*    </p>*/}
+            {/*    <p className="mt-6 text-left font-sans text-lg text-slate-600">*/}
+            {/*      About a year ago, I had a major surgery and was hospitalized*/}
+            {/*      for almost a month. I was lucky to recover well. The real*/}
+            {/*      headache, however, started after I was discharged. I had to*/}
+            {/*      deal with hospital bills, insurance claims, medical equipment*/}
+            {/*      rentals, and constantly calling places to ask if they could*/}
+            {/*      accommodate me. In a single month, I ended up calling dozens*/}
+            {/*      of times every day and spent probably 20+ hours just waiting*/}
+            {/*      to speak with a human. I was frustrated and exhausted.*/}
+            {/*    </p>*/}
+            {/*    {expandText && (*/}
+            {/*      <>*/}
+            {/*        <p className="mt-6 text-left font-sans text-lg text-slate-600">*/}
+            {/*          A few months later, ChatGPT was released, reshaping the AI*/}
+            {/*          landscape almost overnight. I saw the opportunity to build*/}
+            {/*          a product that could help customers like me. People have*/}
+            {/*          been trying to make all kinds of automated agents to call*/}
+            {/*          on users&apos; behalf, such as ordering pizzas. However, I*/}
+            {/*          wanted to take it a step further by directly optimizing*/}
+            {/*          the business side of customer interactions. With Convoice,*/}
+            {/*          we can help businesses improve efficiency and reduce cost,*/}
+            {/*          while providing a better customer experience, ultimately*/}
+            {/*          benefiting everyone.*/}
+            {/*        </p>*/}
+            {/*        <p className="mt-6 text-left font-sans text-lg text-slate-600">*/}
+            {/*          If you are interested in seeing how the latest AI will*/}
+            {/*          transform your customer service and help your customers*/}
+            {/*          receive support quickly and effortlessly, please give us a*/}
+            {/*          try.*/}
+            {/*        </p>*/}
+            {/*        <p className="mt-6 text-left font-sans text-lg text-slate-600">*/}
+            {/*          Thanks,*/}
+            {/*        </p>*/}
+            {/*        <p className="mt-8 text-left font-sans text-lg font-medium text-slate-600">*/}
+            {/*          Yuxing Zhou*/}
+            {/*        </p>*/}
+            {/*        <p className="text-left font-sans text-lg font-medium text-slate-600">*/}
+            {/*          Co-founder of Convoice*/}
+            {/*        </p>*/}
+            {/*      </>*/}
+            {/*    )}*/}
+            {/*    {!expandText && (*/}
+            {/*      <span*/}
+            {/*        className="leading-7 items-center mt-4 flex gap-1 font-sans text-lg text-main-500 hover:cursor-pointer"*/}
+            {/*        onClick={() => setExpandText(!expandText)}*/}
+            {/*      >*/}
+            {/*        Show {`${expandText ? "Less" : "More"}`}*/}
+            {/*        <ChevronDownIcon className="h-4 w-4 stroke-main-500 stroke-[2px]" />*/}
+            {/*      </span>*/}
+            {/*    )}*/}
+            {/*  </div>*/}
+            {/*</div>*/}
 
             {/* <div className="h-[640px] w-full overflow-hidden rounded-3xl bg-white p-12">
               <div className="flex h-full gap-8">
