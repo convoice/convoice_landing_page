@@ -14,7 +14,7 @@ const blogs = [
     title: "How I Build A Customer Service Voicebot in 5 Minutes",
     category: "Product Demo",
     date: "Jan 13, 2024",
-    link: "https://www.convoice.ai/#blog",
+    link: "https://blog.convoice.ai/how-i-build-a-customer-service-voicebot-in-5-minutes-using-convoice-ai-d3de09f18277",
     image: buildAVoicebot,
   },
   {
@@ -59,40 +59,38 @@ export function Blogs() {
             Check out our most recent articles
           </h2>
         </div>
-        <div
-          className="mx-auto mt-12 max-w-2xl grid gap-12 md:grid-cols-2 md:gap-6 lg:max-w-none lg:grid-cols-3 lg:gap-8"
-        >
+        <div className="mx-auto mt-12 grid max-w-2xl gap-12 md:grid-cols-2 md:gap-6 lg:max-w-none lg:grid-cols-3 lg:gap-8">
           {blogs.map((blog, blogIndex) => (
             <div
-            key={blogIndex}
-            className="group cursor-pointer transition hover:scale-[103%] lg:basis-1/3"
-          >
-            <button
-              className="flex w-full flex-col gap-4"
-              onClick={() => {
-                window.open(blog.link, "_blank");
-              }}
+              key={blogIndex}
+              className="group cursor-pointer transition hover:scale-[103%] lg:basis-1/3"
             >
-              <Image
-                alt={blog.title}
-                src={blog.image}
-                layout="responsive"
-                quality={100}
-                className="rounded-2xl"
-              ></Image>
-              <div className="mt-2 flex items-center gap-2 text-gray-500">
-                <div className="text-normal rounded-full bg-gray-100 px-2.5 py-0.5 font-semibold leading-6">
-                  {blog.category}
+              <button
+                className="flex w-full flex-col gap-4"
+                onClick={() => {
+                  window.open(blog.link, "_blank");
+                }}
+              >
+                <Image
+                  alt={blog.title}
+                  src={blog.image}
+                  layout="responsive"
+                  quality={100}
+                  className="rounded-2xl"
+                ></Image>
+                <div className="mt-2 flex items-center gap-2 text-gray-500">
+                  <div className="text-normal rounded-full bg-gray-100 px-2.5 py-0.5 font-semibold leading-6">
+                    {blog.category}
+                  </div>
+                  &#8212;&#8212;
+                  <div className="font-medium">{blog.date}</div>
                 </div>
-                &#8212;&#8212;
-                <div className="font-medium">{blog.date}</div>
-              </div>
-              <h3 className="text-start font-display text-2xl font-semibold leading-7 text-slate-900">
-                {blog.title}
-                <ArrowUpRightIcon className="mb-3 ml-0.5 inline-block h-[20px] w-[20px] stroke-main-500/0 stroke-[0.5px] text-main-500/0 transition group-hover:stroke-main-500 group-hover:text-main-500" />
-              </h3>
-            </button>
-          </div>
+                <h3 className="text-start font-display text-2xl font-semibold leading-7 text-slate-900">
+                  {blog.title}
+                  <ArrowUpRightIcon className="mb-3 ml-0.5 inline-block h-[20px] w-[20px] stroke-main-500/0 stroke-[0.5px] text-main-500/0 transition group-hover:stroke-main-500 group-hover:text-main-500" />
+                </h3>
+              </button>
+            </div>
           ))}
         </div>
       </Container>
