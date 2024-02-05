@@ -13,7 +13,7 @@ const blogs = [
   {
     title: "How I Build A Customer Service Voicebot in 5 Minutes",
     category: "Product Demo",
-    date: "Jan 13, 2024",
+    date: "Feb 4, 2024",
     link: "https://blog.convoice.ai/how-i-build-a-customer-service-voicebot-in-5-minutes-using-convoice-ai-d3de09f18277",
     image: buildAVoicebot,
   },
