@@ -10,7 +10,7 @@ import { PhoneInput } from "react-international-phone";
 import OtpInput from "react-otp-input";
 import "react-international-phone/style.css";
 import { PhoneNumberUtil } from "google-libphonenumber";
-import CalendlyButtonDynamic  from "@/components/CalendlyButtonDynamic";
+import CalendlyButtonDynamic from "@/components/CalendlyButtonDynamic";
 
 const words = ["cafe", "salon", "restaurant", "store", "startup", "business"];
 
@@ -190,7 +190,12 @@ export function HeroDemo() {
       <Container className="pb-20 pt-12 text-center lg:pt-20">
         <div className="flex flex-col items-center gap-16 lg:flex-row">
           <div className="flex max-w-2xl flex-col items-center pt-20 text-center lg:basis-1/2 lg:items-start lg:py-12 lg:text-left">
-            <button className="group flex animate-floating items-center rounded-full bg-main-50 px-1 py-1 font-display font-medium text-main shadow-lg shadow-main-200/50 transition">
+            <button
+              className="group flex animate-floating items-center rounded-full bg-main-50 px-1 py-1 font-display font-medium text-main shadow-lg shadow-main-200/50 transition"
+              onClick={() => {
+                window.open(WAITLIST_URL, "_blank");
+              }}
+            >
               <div className="d14 rounded-full bg-main px-2 py-[1px] text-white">
                 New
               </div>
