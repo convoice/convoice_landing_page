@@ -10,7 +10,7 @@ import { PhoneInput } from "react-international-phone";
 import OtpInput from "react-otp-input";
 import "react-international-phone/style.css";
 import { PhoneNumberUtil } from "google-libphonenumber";
-import CalendlyButtonDynamic from "@/components/CalendlyButtonDynamic";
+import { InactiveDemoButton } from "@/components/InactiveDemoButton";
 
 const words = ["cafe", "salon", "restaurant", "store", "startup", "business"];
 
@@ -241,8 +241,7 @@ export function HeroDemo() {
                 rootElement={document.getElementById("demo")}
                 text="Book a Demo"
               /> */}
-              <CalendlyButtonDynamic />
-              <div id="__next"></div>
+              <InactiveDemoButton />
             </div>
           </div>
           <div className="flex flex-col items-center py-12 lg:basis-1/2 lg:py-20">
