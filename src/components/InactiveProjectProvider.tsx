@@ -16,6 +16,7 @@ const VISIT_STORAGE_KEY = "convoice-inactive-notice";
 
 type InactiveProjectContextValue = {
   openResourcesModal: () => void;
+  openLaunchDemoModal: () => void;
 };
 
 const InactiveProjectContext = createContext<InactiveProjectContextValue | undefined>(
@@ -49,7 +50,9 @@ export function InactiveProjectProvider({
   children,
 }: InactiveProjectProviderProps) {
   const [showFirstVisitModal, setShowFirstVisitModal] = useState(false);
-  const [showResourcesModal, setShowResourcesModal] = useState(false);
+  const [activeArchiveModal, setActiveArchiveModal] = useState<
+    "resources" | "launch-demo" | null
+  >(null);
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -65,14 +68,19 @@ export function InactiveProjectProvider({
   }, []);
 
   const openResourcesModal = useCallback(() => {
-    setShowResourcesModal(true);
+    setActiveArchiveModal("resources");
+  }, []);
+
+  const openLaunchDemoModal = useCallback(() => {
+    setActiveArchiveModal("launch-demo");
   }, []);
 
   const contextValue = useMemo(
     () => ({
       openResourcesModal,
+      openLaunchDemoModal,
     }),
-    [openResourcesModal],
+    [openResourcesModal, openLaunchDemoModal],
   );
 
   return (
@@ -132,11 +140,11 @@ export function InactiveProjectProvider({
         </Dialog>
       </Transition>
 
-      <Transition appear show={showResourcesModal} as={Fragment}>
+      <Transition appear show={activeArchiveModal !== null} as={Fragment}>
         <Dialog
           as="div"
           className="relative z-50"
-          onClose={setShowResourcesModal}
+          onClose={() => setActiveArchiveModal(null)}
         >
           <Transition.Child
             as={Fragment}
@@ -163,11 +171,14 @@ export function InactiveProjectProvider({
               >
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title className="text-lg font-semibold text-slate-900">
-                    Demo booking unavailable
+                    {activeArchiveModal === "launch-demo"
+                      ? "Live demo unavailable"
+                      : "Demo booking unavailable"}
                   </Dialog.Title>
                   <Dialog.Description className="mt-2 text-sm text-slate-600">
-                    We&apos;re not actively working on Convoice at the moment. In the
-                    meantime, you&apos;re welcome to explore some of our other websites:
+                    {activeArchiveModal === "launch-demo"
+                      ? "Convoice is archived and the live demo experience has been retired. You&apos;re welcome to explore some of our other websites:"
+                      : "We&apos;re not actively working on Convoice at the moment. In the meantime, you&apos;re welcome to explore some of our other websites:"}
                   </Dialog.Description>
                   <ul className="mt-4 space-y-2 text-sm text-slate-700">
                     {placeholderLinks.map((link) => (
@@ -189,7 +200,7 @@ export function InactiveProjectProvider({
                     <button
                       type="button"
                       className="rounded-md border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 transition hover:border-slate-300 hover:text-slate-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-main-500"
-                      onClick={() => setShowResourcesModal(false)}
+                      onClick={() => setActiveArchiveModal(null)}
                     >
                       Close
                     </button>

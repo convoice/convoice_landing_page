@@ -1,22 +1,20 @@
 "use client";
 
-import { Dialog, Transition } from "@headlessui/react";
 import { CustomButton } from "@/components/CustomButton";
 import { Container } from "@/components/Container";
+import { InactiveDemoButton } from "@/components/InactiveDemoButton";
+import { useInactiveProject } from "@/components/InactiveProjectProvider";
 import { PhoneIcon } from "@heroicons/react/24/outline";
 import { ArrowRightIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
-import { Fragment, useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PhoneInput } from "react-international-phone";
-import OtpInput from "react-otp-input";
 import "react-international-phone/style.css";
 import { PhoneNumberUtil } from "google-libphonenumber";
-import { InactiveDemoButton } from "@/components/InactiveDemoButton";
 
 const words = ["cafe", "salon", "restaurant", "store", "startup", "business"];
 
 const phoneUtil = PhoneNumberUtil.getInstance();
 const WAITLIST_URL = process.env.NEXT_PUBLIC_WAITLIST_URL;
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const isPhoneValid = (phone: string) => {
   try {
     return phoneUtil.isValidNumber(phoneUtil.parseAndKeepRawInput(phone));
@@ -25,137 +23,12 @@ const isPhoneValid = (phone: string) => {
   }
 };
 
-type verifySMSStatusType = {
-  status: "standby" | "pending" | "verified" | "failed" | "unauthenticated";
-  error?: string;
-};
-
-/**
- * Removes all non-numeric characters from a phone number, resulting in +12131112222
- * @param phone
- */
-const formatNumber = (phone: string) => {
-  return phone.replace(/\D+/g, "");
-};
-
 export function HeroDemo() {
   const [phone, setPhone] = useState("");
   const [phoneValid, setPhoneValid] = useState(false);
-  const [name, setName] = useState("Dear customer");
   const callOptionRef = useRef<HTMLDivElement>(null);
   const [callOption, setCallOption] = useState<"general" | "demo">("general");
-  const [sendSMSError, setSendSMSError] = useState<boolean>(false);
-  const [verifySMSStatus, setVerifySMSStatus] = useState<verifySMSStatusType>({
-    status: "standby",
-  });
-  const [mayRetry, setMayRetry] = useState(true);
-
-  const [otp, setOtp] = useState("");
-  let [isOTPOpen, setIsOTPOpen] = useState(false);
-  function closeModal() {
-    setIsOTPOpen(false);
-  }
-
-  const onCloseModal = () => {
-    // if the user clicks out to close the modal, prevent "sendSMS" for ~1 second
-    // this would prevent abusing the API
-    closeModal();
-    setTimeout(() => {
-      setVerifySMSStatus({ status: "standby" });
-    }, 1200);
-  };
-  function openModal() {
-    setOtp("");
-    setIsOTPOpen(true);
-  }
-
-  const handleSendSMSError = () => {
-    setSendSMSError(true);
-    setMayRetry(false);
-    setTimeout(() => {
-      setSendSMSError(false);
-      setMayRetry(true);
-    }, 2200);
-  };
-
-  const handleVerifySMSError = (unauthenticated: boolean) => {
-    // unauthenticated = true;
-    if (unauthenticated) {
-      setVerifySMSStatus({
-        status: "unauthenticated",
-        error: "Invalid verification code. Please try again.",
-      });
-      setOtp("");
-    } else {
-      setVerifySMSStatus({
-        status: "failed",
-        error: "There was an error verifying your code. Please try again.",
-      });
-      closeModal();
-      setMayRetry(false);
-      setTimeout(() => {
-        setMayRetry(true);
-      }, 1200);
-      setTimeout(() => {
-        setVerifySMSStatus({ status: "standby" });
-      }, 1000);
-    }
-  };
-
-  const sendSMSVerification = useCallback(async () => {
-    if (verifySMSStatus.status === "pending") {
-      // Do not send another SMS if one is still pending
-      return;
-    }
-    const formattedPhone = formatNumber(phone);
-    try {
-      const response = await fetch(
-        `${API_URL}/demo/startVerify?phone=${formattedPhone}`,
-      );
-      // console.log(await response.text());
-      if (!response.ok) {
-        handleSendSMSError();
-        return;
-      }
-      setSendSMSError(false);
-      openModal();
-      setVerifySMSStatus({ status: "pending" });
-    } catch (error) {
-      // console.log("There was an error!", error);
-      handleSendSMSError();
-    }
-  }, [phone, verifySMSStatus.status]);
-
-  const startDemo = useCallback(async () => {
-    const preambleText = `Hi ${name}, I am an automated AI agent calling from Convoice.`;
-    const formattedPhone = formatNumber(phone);
-    console.log(otp);
-    try {
-      const response = await fetch(
-        `${API_URL}/demo/?code=${otp}&preamble=${preambleText}&phone=${formattedPhone}`,
-      );
-
-      // console.log(await response.text());
-
-      // 500 error or invalid code
-      if (response && !response.ok) {
-        const unauthenticated = response.status === 403;
-        handleVerifySMSError(unauthenticated);
-        return;
-      }
-      setVerifySMSStatus({ status: "verified" });
-      setTimeout(() => {
-        setVerifySMSStatus({ status: "standby" });
-      }, 1000);
-      closeModal();
-    } catch (error) {
-      console.log("There was an error!", error);
-      handleVerifySMSError(false);
-    }
-  }, [handleVerifySMSError, name, otp, phone]);
-
-  const sendSMSDisabled =
-    !phoneValid || !mayRetry || verifySMSStatus.status === "pending";
+  const { openLaunchDemoModal } = useInactiveProject();
 
   const [wordIndex, setWordIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
@@ -333,132 +206,19 @@ export function HeroDemo() {
                   placeholder="Tommy Lee"
                   className="max-h-[80px] min-h-[80px] w-full rounded-md border-gray-200 bg-white/10 px-4 !outline-none !ring-transparent transition-all focus:border-gray-200 focus:outline-none"
                   style={{ height: "120px" }}
-                  onChange={(text) => {
-                    setName(text.target.value);
-                  }}
                 ></textarea>
               </div>
 
               <button
                 type="button"
-                className={`mt-2 w-full rounded-lg px-4 py-2.5 transition active:scale-[98%] ${
-                  sendSMSDisabled ? "bg-main-400" : "bg-main hover:bg-main-600"
-                }`}
-                onClick={sendSMSVerification}
-                disabled={sendSMSDisabled}
+                className="mt-2 w-full rounded-lg bg-main px-4 py-2.5 text-white transition hover:bg-main-600 active:scale-[98%]"
+                onClick={openLaunchDemoModal}
               >
                 <div className="flex items-center justify-center gap-2 font-display text-lg font-semibold text-white">
                   <p>Launch Demo</p>
                   <ArrowRightIcon className="h-4 w-4 stroke-white" />
                 </div>
               </button>
-
-              {/*SMS Modal*/}
-              <Transition appear show={isOTPOpen} as={Fragment}>
-                <Dialog
-                  as="div"
-                  className="relative z-50"
-                  onClose={onCloseModal}
-                >
-                  <Transition.Child
-                    as={Fragment}
-                    enter="ease-out duration-300"
-                    enterFrom="opacity-0"
-                    enterTo="opacity-100"
-                    leave="ease-in duration-200"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                  >
-                    <div className="fixed inset-0 bg-black bg-opacity-25" />
-                  </Transition.Child>
-
-                  <div className="fixed inset-0 overflow-y-auto">
-                    <div className="flex min-h-full items-center justify-center p-4 text-center">
-                      <Transition.Child
-                        as={Fragment}
-                        enter="ease-out duration-300"
-                        enterFrom="opacity-0 scale-95"
-                        enterTo="opacity-100 scale-100"
-                        leave="ease-in duration-200"
-                        leaveFrom="opacity-100 scale-100"
-                        leaveTo="opacity-0 scale-95"
-                      >
-                        <Dialog.Panel className="flex w-full max-w-sm transform flex-col items-center overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                          <Dialog.Title
-                            as="h3"
-                            className="font-sans text-lg font-medium leading-6 text-gray-900"
-                          >
-                            Enter Verification Code
-                          </Dialog.Title>
-                          <div className="mt-2">
-                            <p className="text-sm text-gray-500">
-                              {`Code has been sent to ${
-                                "+1 ******" + phone.slice(-4)
-                              }`}
-                            </p>
-                          </div>
-                          {verifySMSStatus.status === "unauthenticated" ? (
-                            <div className="mt-2">
-                              <p className="text-sm text-red-500">
-                                {verifySMSStatus.error}
-                              </p>
-                            </div>
-                          ) : null}
-
-                          <OtpInput
-                            value={otp}
-                            onChange={(event) => {
-                              if (
-                                verifySMSStatus.status === "unauthenticated"
-                              ) {
-                                // reset status to make the error disappear
-                                setVerifySMSStatus({ status: "pending" });
-                              }
-                              // set otp
-                              setOtp(event);
-                            }}
-                            numInputs={6}
-                            containerStyle={
-                              "text-black flex w-full gap-4 justify-center my-3"
-                            }
-                            inputStyle={
-                              "!w-10 h-12 rounded-md border border-[1.5px] border-gray-300 !outline-none !ring-transparent transition-all focus:border-main focus:outline-none font-sans text-lg text-center text-black"
-                            }
-                            renderInput={(props) => <input {...props} />}
-                          />
-
-                          <CustomButton
-                            onClick={startDemo}
-                            color="main"
-                            className={`mt-2 w-full py-1.5 text-base font-medium ${
-                              otp.length < 6
-                                ? "!hover:bg-main-400 !bg-main-400"
-                                : ""
-                            }`}
-                            disabled={otp.length < 6}
-                          >
-                            Verify
-                          </CustomButton>
-                        </Dialog.Panel>
-                      </Transition.Child>
-                    </div>
-                  </div>
-                </Dialog>
-              </Transition>
-              {sendSMSError ? (
-                <div className="fixed inset-0 z-50 flex items-center justify-center">
-                  <div className="flex items-center justify-center rounded-md border border-red-400 bg-red-100 p-1 text-red-700">
-                    There was an error sending the verification code.
-                  </div>
-                </div>
-              ) : null}
-              {verifySMSStatus.status === "failed" ? (
-                <div className="fixed inset-0 z-50 flex items-center justify-center">
-                  <div className="flex items-center justify-center rounded-md border border-red-400 bg-red-100 p-1 text-red-700">
-                    {verifySMSStatus.error}
-                  </div>
-                </div>
-              ) : null}
             </form>
           </div>
         </div>
